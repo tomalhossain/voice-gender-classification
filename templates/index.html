@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COMPSCI590V (UMASS, Spring 2017): HW2/3</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  
+  <link rel="stylesheet" href="static/lib/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="static/lib/css/dc.css"> 
+  <link rel="stylesheet" href="static/css/custom.css"> 
+  <link rel="stylesheet" href="static/lib/css/keen-static.css"> 
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js" defer></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js" defer></script>
+
+  <script type="text/javascript" src="static/lib/js/crossfilter.js" defer></script>
+  <script type="text/javascript" src="static/lib/js/holder.js" defer></script>
+  <script type="text/javascript" src="static/lib/js/jquery.js" defer></script>
+  <script type="text/javascript" src="static/lib/js/queue.js" defer></script>
+  <script type="text/javascript" src="static/lib/js/bootstrap.min.js" defer></script>
+  <script type="text/javascript" src="static/lib/js/dc.js" defer></script>
+  <script type="text/javascript" src="static/lib/js/reductio/reductio.js" defer></script>
+  <script type="text/javascript" src="static/js/charts.js" defer></script>
+  <script type="text/javascript" src="static/js/buttons.js" defer></script>
+
+</head>
+
+<body class="application">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Gender Classification of Voice/Speech Data </h1> 
+        <p style="font-size: 17px">
+          UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
+          <br>
+          Tomal Hossain (Amherst College '17)
+        </p>
+        <hr>
+        <p>
+        The following set of visualization are based on the following study and dataset, <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Identifying the Gender of a Voice using Machine Learning.</a>
+
+        <p style="font-weight:bold"> Paper Abstract: </p>
+        <blockquote style="font-size:13px">
+        "This study presents a research approach using data mining for predicting the performance metrics of posts published in brands' Facebook pages. Twelve posts' performance metrics extracted from a cosmetic company's page including 790 publications were modeled, with the two best results achieving a mean absolute percentage error of around 27%. One of them, the “Lifetime Post Consumers” model, was assessed using sensitivity analysis to understand how each of the seven input features influenced it (category, page total likes, type, month, hour, weekday, paid). The type of content was considered the most relevant feature for the model, with a relevance of 36%. A status post captures around twice the attention of the remaining three types (link, photo, video). We have drawn a decision process flow from the “Lifetime Post Consumers” model, which by complementing the sensitivity analysis information may be used to support manager's decisions on whether to publish a post."
+        </blockquote>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="toggle">
+        <span id="group-text">Scatterplot</span>
+        <button id="hide-scatter">Hide</button>
+        <button id="show-scatter">Show</button>
+      </div>
+      <div id="scatter">
+        <div class="col-sm-12">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Post Number vs Amount of Lifetime Post Engaged Users)
+            </div>
+            <div class="chart-stage">
+              <div id="scatter-plot"></div>
+            </div>
+            <div class="chart-notes">
+               The amount of lifetime engaged users for each data entry in the dataset. Lifetime engaged users are the amount of individuals who clicked anywhere in a post. The visualization utlizes a square root scale for the y-axis and a linear scale for the x-axis. The entries (individual posts throughout 2014) are ordered chronologically, by corresponding month, weekday, and hour. A draggable, resizeable rectangular selection tool is available for filtering specific data entries to allow for more detailed exploration in the other visualizations. Clicking once anywhere in the white space of the graph deselects data entries and thus restores the graphs default state.    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="toggle">
+        <span id="group-text">Bar Graphs</span>
+        <button id="hide-bar">Hide</button>
+        <button id="show-bar">Show</button>
+      </div>
+      <div id="bar">
+        <div class="col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Average Amount of Lifetime Post Engaged Users by Post Type  
+            </div>
+            <div class="chart-stage">
+              <div id="type-bar-graph"></div>
+            </div>
+            <div class="chart-notes">
+              The average amount of lifetime engaged users for any given selection of the dataset for each of the four possible post types (link, photo, status, and video). Clicking on any one of the four bars while the other graphs are in there default state filters records visualized in each of the other graphs by the selected type. Clicking again on the selected bar deselects it. Color is inconsequential. Hovering over a bar probes its amount of average lifetime post engaged users.       
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Average Amount of Lifetime Post Engaged Users by Post Category 
+            </div>
+            <div class="chart-stage">
+              <div id="category-bar-graph"></div>
+            </div>
+            <div class="chart-notes">
+              The average amount of lifetime engaged users for any given selection of the dataset for each of the three possible post categories (action, inspiration, and product). Clicking on any one of the three bars while the other graphs are in there default state filters records visualized in each of the other graphs by the selected type. Clicking again on the selected bar deselects it. Color is inconsequential. Hovering over a bar probes its amount of average lifetime post engaged users.     
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Average Amount of Lifetime Post Engaged Users by Post Subscription
+            </div>
+            <div class="chart-stage">
+              <div id="paid-bar-graph"></div>
+            </div>
+            <div class="chart-notes">
+              The average amount of lifetime engaged users for any given selection of the dataset for either of the two possible post subscriptions models (free and paid). Clicking on any one of the two bars while the other graphs are in there default state filters records visualized in each of the other graphs by the selected type. Clicking again on the selected bar deselects it. Color is inconsequential. Hovering over a bar probes its amount of average lifetime post engaged users.      
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="toggle">
+        <span id="group-text">Line Graphs</span>
+      <button id="hide-time">Hide</button>
+      <button id="show-time">Show</button>
+      </div> 
+      <div id="time">
+        <div class="col-sm-6">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Various Averages of Output Metrics by Month (Users) 
+            </div>
+            <div class="chart-stage">
+              <div id="composite-line-user"></div>
+            </div>
+            <div class="chart-notes">
+              Line graphs visualizing average values for 5/12 "output" metrics in the dataset, i.e. Each of these metrics refers some number of users/human agent. Post month x-axes values correspond with the months of the year (1="January", 2="February", etc.) This graph uses an exponential scale for it's y-axis and an ordinal one for its x-axis. Tracing any given line with a mouse/trackpad reveals a series of 12 points which upon probing reveals the corresponding month and average output metric. Hovering over any item in the legend list singles out the correspdoning line graph.  
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Various Averages of Output Metrics by Month (Occurences) 
+            </div>
+            <div class="chart-stage">
+              <div id="composite-line-interactions"></div>
+            </div>
+            <div class="chart-notes">
+              Line graphs visualizing average values for 3/12 "output" metrics in the dataset. Each of these metrics refers some number of occurences spawned by human agents. For instance, post impressions Post month x-axes values correspond with the months of the year (1="January", 2="February", etc.) This graph uses an exponential scale for it's y-axis and an ordinal one for its x-axis. Tracing any given line with a mouse/trackpad reveals a series of 12 points which upon probing reveals the corresponding month and average output metric. Hovering over any item in the legend list singles out the correspdoning line graph.  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="toggle">
+        <span id="group-text">Heat Map</span>
+      <button id="hide-heat">Hide</button>
+      <button id="show-heat">Show</button>
+      </div> 
+      <div id="heat">
+        <div class="col-sm-12">
+          <div class="chart-wrapper">
+            <div class="chart-title">
+              Average Total Interactions for Combinations of Weekday and Hour
+            </div>
+            <div class="chart-stage">
+              <div id="heat-legend"></div>
+              <div id="heat-map"></div>
+            </div>
+            <div class="chart-notes">
+              Cells represent the average number of total interactions (likes + shares + comments) for any configuration of hour of the day on the x-axis(1="1am", 13 = "1pm") and weekday on the y-axis (1="Monday", 2="Tuesday", etc.). The dataset had no records with value "0" (i.e. 12 am), thus the heatmap begins at "1" (i.e. 1 am). The presence of blue signifies a lower number of total interactions while red signifies a higher number of total interactions. Starting at the maps default state, clicking on any individual cell de-selects the sell. Clicking on said cell a second time re-selects it. Clicking on a given axis label selects the entire row/column corresponding with that label.   
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

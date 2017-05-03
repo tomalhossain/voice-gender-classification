@@ -1,0 +1,50 @@
+.chart-wrapper .chart-title {
+	font-size: 1.2em;
+	text-align: center;
+	color: black;
+}
+
+.chart-wrapper .chart-stage {
+	padding: 10px;
+}
+
+
+/* Style Graph Axes Labels */
+
+.x-axis-label {
+	font-size: 0.9em;
+}
+
+.y-axis-label {
+	font-size: 0.9em;
+	padding-left: 10px;
+}
+
+.chart-wrapper .chart-notes {
+	font-size:0.9em;
+}
+
+#group-text {
+	font-size: 1.4em;
+}
+
+/* Style Show/Hide Menus for major viz divisions */
+
+.toggle {
+
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+button {
+    background-color: #2d79b7; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
