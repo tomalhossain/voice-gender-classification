@@ -1,24 +1,3 @@
-d3.queue()
- .defer(d3.json, "/projects")
-    .await(makeGraphs)
-
-function makeGraphs(error, projectsJson) {
-    
- var json = projectsJson
- console.log(json)
-
-  var fields = Object.keys(json[0])
-  var replacer = function(key, value) { return value === null ? '' : value } 
-  var data = json.map(function(row){
-    return fields.map(function(fieldName){
-      return JSON.stringify(row[fieldName], replacer)
-    }).join(',')
-  })
-  data.unshift(fields.join(',')) // add header column
-
-  console.log(data.join('\r\n'))
-
-
 var parcoords = d3.parcoords()("#example")
     .alpha(0.4)
     .mode("queue") // progressive rendering
@@ -30,7 +9,11 @@ var parcoords = d3.parcoords()("#example")
       bottom: 16
     });
 
+// load csv file and create the chart
+d3.csv('static/js/voice-gender.csv', function(data) {
   // slickgrid needs each data element to have an id
+  
+  console.log(data)
   data.forEach(function(d,i) { d.id = d.id || i; });
 
   parcoords
@@ -116,4 +99,4 @@ var parcoords = d3.parcoords()("#example")
     dataView.endUpdate();
   };
 
-};
+});

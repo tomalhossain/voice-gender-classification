@@ -27,7 +27,7 @@ def index ():
 
 
 @app.route("/projects")
-def projects_json ():
+def projects ():
     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
     collection = connection[DBS_NAME][COLLECTION_NAME]
     documents = collection.find()
@@ -37,15 +37,6 @@ def projects_json ():
     json_documents = json.dumps(json_documents, default=json_util.default)
     connection.close()
     return json_documents
-
-@app.route("/projects-csv")
-def projects_csv ():
-    connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
-    collection = connection[DBS_NAME][COLLECTION_NAME]
-    documents = collection.find()
-    print (documents)
-    return documents
-
 
 
 if __name__ == "__main__":
