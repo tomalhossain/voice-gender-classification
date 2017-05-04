@@ -1,18 +1,22 @@
 body, html {
-  margin: 0;
+/*  margin: 0 auto;*/
+  margin-left: 30px;
   height: 100%;
-  width: 100%;
-  overflow: hidden;
-  font-size: 12px;
 }
 
+/*html {
+	display:table; width:100%;
+}*/
 
 body {
   font-size: 16px;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  margin: 24px;
   background: #fcfcfc;
   line-height: 1.45em;
+/*  display:table-cell; 
+  text-align:center; 
+  vertical-align:middle;}*/
+
 }
 a {
   color: #555;
@@ -24,9 +28,7 @@ ul {
   margin: 0 20px;
   padding: 0;
 }
-.dark {
-  background: #222;
-}
+
 p {
   width: 500px;
 }
@@ -42,9 +44,39 @@ h1 small {
   font-weight: normal;
   font-size: 0.5em;
 }
+
+h1 { 
+	font-size: 2.5em;
+}
+h2 {
+	font-size: 2em;
+}
+
 h3 {
   margin-top: 40px;
 }
+
+input {
+  font-size: 16px;
+}
+
+button {
+    background-color: #2d79b7; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.dark {
+  background: #222;
+}
+
 .float {
   float: left;
 }
@@ -54,13 +86,17 @@ h3 {
 .hide {
   display: none;
 }
-input {
-  font-size: 16px;
+
+/*Parallel Coordinates*/
+
+.parcoords {
+	margin-bottom: 50px;
 }
 
 #grid, #pager {
-  position: fixed;
-  width: 100%;
+  /*position: center;*/
+  margin-left: 60px;
+  width: 77%;
 }
 #grid {
   bottom: 0;
@@ -70,14 +106,10 @@ input {
   bottom: 306px;
   height: 20px;
 }
+
 .slick-row:hover {
   font-weight: bold;
   color: #069;
-}
-
-.parcoords {
-	height: 500px;
-	width: 2000px;
 }
 
 .chart-wrapper .chart-title {
@@ -89,7 +121,6 @@ input {
 .chart-wrapper .chart-stage {
 	padding: 10px;
 }
-
 
 /* Style Graph Axes Labels */
 
@@ -118,15 +149,3 @@ input {
 	margin-bottom: 10px;
 }
 
-button {
-    background-color: #2d79b7; /* Green */
-    border: none;
-    color: white;
-    padding: 3px 10px;
-    margin-bottom: 15px;
-    margin-left: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}

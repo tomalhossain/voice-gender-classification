@@ -2,120 +2,95 @@
 <html>
 
 <head>
-  <title>COMPSCI590V (UMASS, Spring 2017): HW2/3</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-  
-
-<!-- START CSS LIB --> 
-  <link rel="stylesheet" type="text/css" href="static/lib/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="static/lib/css/dc.css"> 
-  <link rel="stylesheet" type="text/css" href="static/lib/css/keen-static.css"> 
-  <link rel="stylesheet" type="text/css" href="static/lib/css/d3.parcoords.css">
-  
-  <link rel="stylesheet" type="text/css" href="static/lib/css/slick.grid.css" type="text/css"/>
-  <link rel="stylesheet" type="text/css" href="static/lib/css/jquery-ui-1.8.16.custom.css" type="text/css"/>
-  <link rel="stylesheet" type="text/css" href="static/lib/css/examples.css" type="text/css"/>
-  <link rel="stylesheet" type="text/css" href="static/lib/css/slick.pager.css" type="text/css"/>
-<!-- END CSS LIB --> 
-
-
-<!-- START CSS CUSTOM --> 
-  <link rel="stylesheet" type="text/css" href="static/css/custom.css"> 
-<!-- END CSS CUSTOM --> 
-
-
-<!-- START JS LIB --> 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js" ></script>
-  <script type="text/javascript" src="static/lib/js/crossfilter.js"></script>
-  <script type="text/javascript" src="static/lib/js/holder.js"></script>
-  <script type="text/javascript" src="static/lib/js/jquery.js"></script>
-  <script src="static/lib/js/jquery-1.7.min.js"></script>
-  <script src="static/lib/js/jquery.event.drag-2.0.min.js"></script>
-  <script type="text/javascript" src="static/lib/js/queue.js"></script>
-  <script type="text/javascript" src="static/lib/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="static/lib/js/dc.js"></script>
-  <script type="text/javascript" src="static/lib/js/reductio/reductio.js"></script>
-
-  <script type="text/javascript" src="static/js/buttons.js"></script>
-  <script type="text/javascript" src="static/lib/js/slick.core.js"></script>
-  <script type="text/javascript" src="static/lib/js/slick.grid.js"></script>
-  <script type="text/javascript" src="static/lib/js/slick.pager.js"></script>
-  <script type="text/javascript" src="static/lib/js/slick.dataview.js"></script>
-  <script type="text/javascript" src="static/lib/js/d3.parcoords.js"></script>
-
-
-<!-- END JS LIB --> 
-
-
-
-
+    <title>COMPSCI590V (UMASS, Spring 2017): HW2/3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+    <!-- START CSS LIB -->
+    <link rel="stylesheet" type="text/css" href="static/lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/dc.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/keen-static.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/d3.parcoords.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/jquery-ui-1.8.16.custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/examples.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/slick.grid.css" type="text/css" />
+    <!-- END CSS LIB -->
+    <!-- START CSS CUSTOM -->
+    <link rel="stylesheet" type="text/css" href="static/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="static/css/radviz.css">  
+    <!-- END CSS CUSTOM -->
+    <!-- START JS LIB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js"></script>
+    <script src="https://rawgit.com/biovisualize/radviz/master/radviz-min.js"></script>    
+    <script type="text/javascript" src="static/lib/js/crossfilter.js"></script>
+    <script type="text/javascript" src="static/lib/js/holder.js"></script>
+    <script type="text/javascript" src="static/lib/js/jquery.js"></script>
+    <script src="static/lib/js/jquery-1.7.min.js"></script>
+    <script src="static/lib/js/jquery.event.drag-2.0.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/queue.js"></script>
+    <script type="text/javascript" src="static/lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/dc.js"></script>
+    <script type="text/javascript" src="static/lib/js/reductio/reductio.js"></script>
+    <script type="text/javascript" src="static/js/buttons.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.core.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.grid.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.pager.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.dataview.js"></script>
+    <script type="text/javascript" src="static/lib/js/d3.parcoords.js"></script>
+    <!-- END JS LIB -->
 </head>
 
 <body>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Gender Classification of Voice/Speech Data </h1> 
-      <p style="font-size: 17px">
-        UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
-        <br>
-        Tomal Hossain (Amherst College '17)
-      </p>
-      <hr>
-      <p>
-      The following set of visualization are based on the following study and dataset, <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Identifying the Gender of a Voice using Machine Learning.</a>
-
-      <p style="font-weight:bold"> Paper Abstract: </p>
-      <blockquote style="font-size:13px">
-      
-      Background information
-
-      </blockquote>
-
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Gender Classification of Voice/Speech Data </h1>
+            <p style="font-size: 17px">
+                UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
+                <br> Tomal Hossain (Amherst College '17)
+            </p>
+            <hr>
+            <p>
+                The following set of visualization are based on the following study and dataset, <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Identifying the Gender of a Voice using Machine Learning.</a>
+                <p style="font-weight:bold"> Paper Abstract: </p>
+                <blockquote style="font-size:13px">
+                    Background information
+                </blockquote>
+        </div>
     </div>
-  </div>
+    
+    <div class="row">
+      <h2> Parallel Coordinates </h2>
+      <div id="example" class="parcoords" style="height:500px"></div>
+      <div id="grid"></div>
+      <div id="pager"></div>
+    </div>
 
+    <div class="row">
+      <div class="container"></div>
+      <div id="tooltip"></div>
+    </div>
 
+    <div class="col-sm-12">
+        Stuff
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            Stuff
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            Stuff
+        </div>
+    </div>
+    </div>
+    <!-- START JS CUSTOM-->
+    <script type="text/javascript" src="static/js/charts.js"></script>
+    <script type="text/javascript" src="static/js/parcoords.js"></script>
+    <script type="text/javascript" src="static/js/radviz.js"></script>
 
- <div class="row">
-      
-  <div id="example" class="parcoords"></div>
-  <div id="grid"></div>
-  <div id="pager"></div>
-
-  </div>
-
- <div class="row">
-      <div class="col-sm-12">
-      
-      Stuff
-
-      </div>
-  </div>
-
- <div class="row">
-      <div class="col-sm-12">
-      
-      Stuff
-
-      </div>
-  </div>
-
- <div class="row">
-      <div class="col-sm-12">
-      
-      Stuff    
-  
-      </div>
-  </div>
-</div>
-
-
-<!-- START JS CUSTOM--> 
-    <script type="text/javascript" src="static/js/charts.js" ></script>
-    <script type="text/javascript" src="static/js/parcoords.js" ></script>
-<!-- END JS CUSTOM --> 
-
+    <!-- END JS CUSTOM -->
 </body>
+
 </html>

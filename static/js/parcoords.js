@@ -1,12 +1,16 @@
 var parcoords = d3.parcoords()("#example")
     .alpha(0.4)
     .mode("queue") // progressive rendering
-    .height(d3.max([document.body.clientHeight-326, 220]))
+    
+    // .height(d3.max([document.body.clientHeight-326, 220]))
+    .height(600)
+    .width(1500)
+
     .margin({
       top: 36,
-      left: 0,
+      left: 30,
       right: 0,
-      bottom: 16
+      bottom: 100
     });
 
 // load csv file and create the chart
