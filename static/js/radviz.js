@@ -19,12 +19,7 @@ var radviz = radvizComponent()
         }
     });
 
-d3.csv('static/js/voice-gender-sub.csv', function(error, data){
-    console.log(data);
-    radviz.render(data);
+d3.csv('static/js/voice-gender-subset-20.csv', function(error, data){
+  console.log(data);
+  radviz.render(data);    
 });
-
-  // d3.json('https://rawgit.com/biovisualize/radviz/master/data/iris.json', function(error, data){
-  //     console.log(data);
-  //     radviz.render(data);
-  // });

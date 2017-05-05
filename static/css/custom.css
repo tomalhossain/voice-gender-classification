@@ -1,6 +1,7 @@
 body, html {
 /*  margin: 0 auto;*/
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
   height: 100%;
 }
 
@@ -16,17 +17,41 @@ body {
 /*  display:table-cell; 
   text-align:center; 
   vertical-align:middle;}*/
-
 }
+
+/*Navbar*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #0066cc;
+    text-decoration: none;
+}
+
 a {
   color: #555;
 }
 a:hover {
-  color: #000;
-}
-ul {
-  margin: 0 20px;
-  padding: 0;
+  color: #fff;
 }
 
 p {
@@ -47,9 +72,11 @@ h1 small {
 
 h1 { 
 	font-size: 2.5em;
+  text-align: center;
 }
 h2 {
 	font-size: 2em;
+  text-align: center;
 }
 
 h3 {
@@ -73,6 +100,12 @@ button {
     font-size: 16px;
 }
 
+/* Bootstrap */
+/*.row p {
+  text-align: center;
+}
+*/
+
 .dark {
   background: #222;
 }
@@ -89,9 +122,9 @@ button {
 
 /*Parallel Coordinates*/
 
-.parcoords {
-	margin-bottom: 50px;
-}
+/*.parcoords {
+	margin-bottom: 20px;
+}*/
 
 #grid, #pager {
   /*position: center;*/
@@ -149,3 +182,46 @@ button {
 	margin-bottom: 10px;
 }
 
+/*Misc*/
+
+
+.center-block { 
+  margin: 0 auto;
+}
+
+.center-block-25 { 
+  margin: 0 auto;
+  width: 25%;
+  margin-bottom: 100px;
+}
+
+.center-block-50 { 
+  margin: 0 auto;
+  width: 50%;
+  margin-bottom: 100px;
+}
+
+.center-block-75 { 
+  margin: 0 auto;
+  width: 75%;
+  margin-bottom: 100px;
+}
+
+.center-block-75-nmb { 
+  margin: 0 auto;
+  width: 75%;
+}
+
+.row p {
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.row blockquote {
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.padded li {
+  text-align: justify;
+}

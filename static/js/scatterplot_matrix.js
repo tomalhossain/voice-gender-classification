@@ -13,7 +13,7 @@ if(location.search.indexOf('nowait')!==-1) {
     d3.select('#wait-url').attr('href', location.origin + location.pathname + '?nowait');
 }
 
-d3.csv('static/js/voice-gender-sub.csv', function(error, csv) {
+d3.csv('static/js/voice-gender-subset-20.csv', function(error, csv) {
     if (error) throw new Error(error);
     csv.forEach(function(d) {
         Object.keys(fields).forEach(function(ab) {
@@ -65,8 +65,8 @@ d3.csv('static/js/voice-gender-sub.csv', function(error, csv) {
                     var showYAxis = x === 1, showXAxis = y === 4;
                     chart
                         .transitionDuration(0)
-                        .width(200 + (showYAxis?25:0))
-                        .height(200 + (showXAxis?20:0))
+                        .width(150 + (showYAxis?25:0))
+                        .height(150 + (showXAxis?20:0))
                         .margins({
                             left: showYAxis ? 40 : 8,
                             top: 20,
