@@ -46,68 +46,67 @@
 
 <body>
     <nav class="nav">
-        <div class="padded">
-            <ul>
-                <li class="active"><a href="#intro">Introduction</a></li>
-                <li><a data-scroll href="#parcoords">Parallel Coordinates</a></li>
-                <li><a data-scroll href="#scat-matrix">Scatterplot Matrix</a></li>
-                <li><a data-scroll href="#radviz">Radviz</a></li>
-                <li><a data-scroll href="#hist-matrix">Histogram Matrix</a></li>
-                <li class="scrollTop"><a href="#"><span class="entypo-up-open"></span></a></li>
-            </ul>
+        <ul>
+            <li class="active"><a href="#intro">Introduction</a></li>
+            <li><a data-scroll href="#parcoords">Parallel Coordinates</a></li>
+            <li><a data-scroll href="#scat-matrix">Scatterplot Matrix</a></li>
+            <li><a data-scroll href="#radviz">Radviz</a></li>
+            <li><a data-scroll href="#hist-matrix">Histogram Matrix</a></li>
+            <li class="scrollTop"><a href="#"><span class="entypo-up-open"></span></a></li>
+        </ul>
         </div>
     </nav>
-    <div class="row block">
-        <div>
-            <h1 id="intro">Voice/Speech Gender Data </h1>
-            <p style="font-size: 17px;">
-                UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
-                <br> Tomal Hossain (Amherst College '17)
-            </p>
-            <hr>
-            <p>
-                The following set of visualizations are based on the following study and dataset, <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Identifying the Gender of a Voice using Machine Learning.</a>
-                <p style="font-weight:bold"> Paper Abstract: </p>
-                <blockquote style="font-size:13px">
-                    Background information
-                </blockquote>
-        </div>
-    </div>
-    <div class="row block">
-        <h2 id="parcoords">Parallel Coordinates</h2>
-        <div id="example" class="parcoords" style="height:500px"></div>
-        <div id="grid"></div>
-        <div id="pager"></div>
-    </div>
-        <div class="row">
-        <div>  
-            <h2 id="scat-matrix">Scatterplot Matrix</h2>
-            <div class="col-md-7">
-                <table id="scatterplot-matrix" class="block"></table>
-            </div>
-            <div class="col-md-3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
-            </div>            
-        </div>    
-    </div>
+    <div id="content">
         <div class="row block">
-            <h2 id="radviz">Radviz</h2>   
+            <div>
+                <h1 id="intro">Voice/Speech Gender Data </h1>
+                <p style="font-size: 17px;">
+                    UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
+                    <br> Tomal Hossain (Amherst College '17)
+                </p>
+                <hr>
+                <p>
+                    The following set of visualizations are based on the following study and dataset, <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Identifying the Gender of a Voice using Machine Learning.</a>
+                    <p style="font-weight:bold"> Paper Abstract: </p>
+                    <blockquote style="font-size:13px">
+                        Background information
+                    </blockquote>
+            </div>
+        </div>
+        <div class="row block">
+            <h2 id="parcoords">Parallel Coordinates</h2>
+            <div id="example" class="parcoords" style="height:500px; width: 85%"></div>
+            <div id="grid"></div>
+            <div id="pager"></div>
+        </div>
+        <div class="row">
+            <div>
+                <h2 id="scat-matrix">Scatterplot Matrix</h2>
+                <div class="col-md-7">
+                    <table id="scatterplot-matrix" class="block"></table>
+                </div>
+                <div class="col-md-3">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row block">
+            <h2 id="radviz">Radviz</h2>
             <div class="col-md-6 ">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
-            </div>   
+            </div>
             <div class="col-md-6">
-              <div class="radviz"></div>
-              <div id="tooltip"></div>
+                <div class="radviz"></div>
+                <div id="tooltip"></div>
             </div>
         </div>
         <div class="row block">
-        <div>  
-            <h2 id="hist-matrix" class="block">Histogram Matrix</h2>
-            <div id="meanfreqHist"></div>
-            Stuff
+            <div>
+                <h2 id="hist-matrix" class="block">Histogram Matrix</h2>
+                <div id="meanfreqHist"></div>
+                Stuff
+            </div>
         </div>
-    </div>
-
     </div>
     <!-- START JS CUSTOM-->
     <script type="text/javascript" src="static/js/charts.js"></script>

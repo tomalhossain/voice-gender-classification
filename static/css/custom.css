@@ -1,178 +1,253 @@
-body, html {
-  margin-left: 100px;
-  margin-right: 100px;
-  height: 100%;
+body,
+html
+{
+    height: 100%;
+/*    margin-right: 100px;
+    margin-left: 100px;*/
 }
 
-body {
-  font-size: 16px;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background: #fcfcfc;
-  line-height: 1.45em;
+body
+{
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.45em;
+
+    background: #fcfcfc;
 }
 
-/*Navbar*/
+ul
+{
+    overflow: hidden;
 
-ul {
-    list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    /*position:fixed;*/
 
+    list-style-type: none;
+
+    background-color: #333;
 }
 
-li {
+li
+{
     float: left;
 }
 
-li a {
+li a
+{
     display: block;
-    color: white;
+
     padding: 14px 16px;
+
     text-decoration: none;
+
+    color: white;
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #0066cc;
+li a:hover
+{
     text-decoration: none;
+
+    background-color: #06c;
 }
 
-a {
-  color: #555;
+a
+{
+    color: #555;
 }
-a:hover {
-  color: #fff;
-}
-
-p {
-  width: 500px;
-}
-pre {
-  color: #444;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  padding: 4px 8px;
-  background: #f2f2f2;
-  border: 1px solid #ccc;
-  margin: 10px;
-}
-h1 small {
-  font-weight: normal;
-  font-size: 0.5em;
+a:hover
+{
+    color: #fff;
 }
 
-h1 { 
-	font-size: 2.5em;
-  padding-top: 40px;
+p
+{
+    width: 500px;
+}
+pre
+{
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+    margin: 10px;
+    padding: 4px 8px;
+
+    color: #444;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+}
+h1 small
+{
+    font-size: .5em;
+    font-weight: normal;
 }
 
-h2 {
-	font-size: 2em;
-  padding-top: 40px;
-  padding-bottom: 40px;
+h1
+{
+    font-size: 2.5em;
+    padding-top: 70px;
 }
 
-h3 {
-  margin-top: 40px;
+h2
+{
+    font-size: 2em;
+    padding-top: 60px;
+    padding-bottom: 40px;
 }
 
-input {
-  font-size: 16px;
+h3
+{
+    margin-top: 40px;
 }
 
-button {
-  background-color: #2d79b7; /* Green */
-  border: none;
-  color: white;
-  padding: 3px 10px;
-  margin-bottom: 15px;
-  margin-left: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+input
+{
+    font-size: 16px;
 }
 
-.dark {
-  background: #222;
+button
+{
+    font-size: 16px;
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+    margin-left: 10px;
+    padding: 3px 10px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: white;
+    border: none;
+    background-color: #2d79b7; /* Green */
 }
 
-.float {
-  float: left;
-}
-.centered {
-  text-align: center;
-}
-.hide {
-  display: none;
+.dark
+{
+    background: #222;
 }
 
-#grid, #pager {
-  margin-left: 60px;
-  width: 90%;
+.float
+{
+    float: left;
 }
-#grid {
-  bottom: 0;
-  height: 300px;
+.centered
+{
+    text-align: center;
 }
-#pager {
-  bottom: 306px;
-  height: 20px;
-}
-
-.slick-row:hover {
-  font-weight: bold;
-  color: #069;
+.hide
+{
+    display: none;
 }
 
-.chart-wrapper .chart-title {
-	font-size: 1.2em;
-	text-align: center;
-	color: black;
+#grid,
+#pager
+{
+    width: 90%;
+    margin-left: 60px;
+}
+#grid
+{
+    bottom: 0;
+
+    height: 300px;
+}
+#pager
+{
+    bottom: 306px;
+
+    height: 20px;
 }
 
-.chart-wrapper .chart-stage {
-	padding: 10px;
+.slick-row:hover
+{
+    font-weight: bold;
+
+    color: #069;
+}
+
+.chart-wrapper .chart-title
+{
+    font-size: 1.2em;
+
+    text-align: center;
+
+    color: black;
+}
+
+.chart-wrapper .chart-stage
+{
+    padding: 10px;
 }
 
 /* Style Graph Axes Labels */
 
-.x-axis-label {
-	font-size: 0.9em;
+.x-axis-label
+{
+    font-size: .9em;
 }
 
-.y-axis-label {
-	font-size: 0.9em;
-	padding-left: 10px;
+.y-axis-label
+{
+    font-size: .9em;
+
+    padding-left: 10px;
 }
 
-.chart-wrapper .chart-notes {
-	font-size:0.9em;
+.chart-wrapper .chart-notes
+{
+    font-size: .9em;
 }
 
-#group-text {
-	font-size: 1.4em;
+#group-text
+{
+    font-size: 1.4em;
 }
 
 /* Style Show/Hide Menus for major viz divisions */
 
-.toggle {
-	margin-top: 10px;
-	margin-bottom: 10px;
+.toggle
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /*Misc*/
 
-.padded li {
+/*.padded li {
   text-align: justify;
+}*/
+
+.nav
+{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+
+    display: block;
+    float: left;
+    overflow: hidden;
+
+    width: 100%;
+    margin-bottom: 100px;
+
+    text-align: center;
+    text-decoration: none;
+
+    background-color: #333;
 }
 
-.nav {
-  /*margin-bottom: 100px;*/
+.block
+{
+    margin-bottom: 50px;
 }
 
-.block {
-  margin-bottom: 50px;
+#content {
+  margin-right: 100px;
+  margin-left: 140px;  
+}
+
+
+#parcoords {
+  text-align: center;
 }
