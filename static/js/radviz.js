@@ -8,8 +8,8 @@ var radviz = radvizComponent()
         el: document.querySelector('.radviz'),
         colorAccessor: function(d){ return d['label']; },
         dimensions: dimensions,
-        size: 700,
-        margin: 100,
+        size: 600,
+        //margin: 100,
         useRepulsion: true,
         drawLinks: true,
         tooltipFormatter: function(d){

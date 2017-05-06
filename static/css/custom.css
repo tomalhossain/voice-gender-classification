@@ -71,7 +71,7 @@ h1 {
 h2 {
 	font-size: 2em;
   padding-top: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 h3 {
@@ -171,4 +171,8 @@ button {
 
 .nav {
   /*margin-bottom: 100px;*/
+}
+
+.block {
+  margin-bottom: 50px;
 }
