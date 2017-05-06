@@ -13,7 +13,7 @@ if(location.search.indexOf('nowait')!==-1) {
     d3.select('#wait-url').attr('href', location.origin + location.pathname + '?nowait');
 }
 
-d3.csv('static/js/voice-gender-subset-20.csv', function(error, csv) {
+d3.csv('static/js/voice-gender-subset-50.csv', function(error, csv) {
     if (error) throw new Error(error);
     csv.forEach(function(d) {
         Object.keys(fields).forEach(function(ab) {
@@ -93,8 +93,8 @@ d3.csv('static/js/voice-gender-subset-20.csv', function(error, csv) {
                         .excludedOpacity(0.7)
                         .renderHorizontalGridLines(true)
                         .renderVerticalGridLines(true);
-                    chart.xAxis().ticks(6);
-                    chart.yAxis().ticks(6);
+                    chart.xAxis().ticks(4);
+                    chart.yAxis().ticks(4);
                     chart.on('postRender', function(chart) {
                         // remove axes unless at left or bottom
                         if(!showXAxis)

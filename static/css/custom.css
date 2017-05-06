@@ -1,22 +1,14 @@
 body, html {
-/*  margin: 0 auto;*/
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
   height: 100%;
 }
-
-/*html {
-	display:table; width:100%;
-}*/
 
 body {
   font-size: 16px;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #fcfcfc;
   line-height: 1.45em;
-/*  display:table-cell; 
-  text-align:center; 
-  vertical-align:middle;}*/
 }
 
 /*Navbar*/
@@ -27,6 +19,8 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    /*position:fixed;*/
+
 }
 
 li {
@@ -36,7 +30,6 @@ li {
 li a {
     display: block;
     color: white;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -72,11 +65,13 @@ h1 small {
 
 h1 { 
 	font-size: 2.5em;
-  text-align: center;
+  padding-top: 40px;
 }
+
 h2 {
 	font-size: 2em;
-  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 
 h3 {
@@ -88,23 +83,17 @@ input {
 }
 
 button {
-    background-color: #2d79b7; /* Green */
-    border: none;
-    color: white;
-    padding: 3px 10px;
-    margin-bottom: 15px;
-    margin-left: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-/* Bootstrap */
-/*.row p {
+  background-color: #2d79b7; /* Green */
+  border: none;
+  color: white;
+  padding: 3px 10px;
+  margin-bottom: 15px;
+  margin-left: 10px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
-*/
 
 .dark {
   background: #222;
@@ -120,16 +109,9 @@ button {
   display: none;
 }
 
-/*Parallel Coordinates*/
-
-/*.parcoords {
-	margin-bottom: 20px;
-}*/
-
 #grid, #pager {
-  /*position: center;*/
   margin-left: 60px;
-  width: 77%;
+  width: 90%;
 }
 #grid {
   bottom: 0;
@@ -177,51 +159,16 @@ button {
 /* Style Show/Hide Menus for major viz divisions */
 
 .toggle {
-
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
 /*Misc*/
 
-
-.center-block { 
-  margin: 0 auto;
-}
-
-.center-block-25 { 
-  margin: 0 auto;
-  width: 25%;
-  margin-bottom: 100px;
-}
-
-.center-block-50 { 
-  margin: 0 auto;
-  width: 50%;
-  margin-bottom: 100px;
-}
-
-.center-block-75 { 
-  margin: 0 auto;
-  width: 75%;
-  margin-bottom: 100px;
-}
-
-.center-block-75-nmb { 
-  margin: 0 auto;
-  width: 75%;
-}
-
-.row p {
-  margin: 0 auto;
-  text-align: justify;
-}
-
-.row blockquote {
-  margin: 0 auto;
-  text-align: justify;
-}
-
 .padded li {
   text-align: justify;
+}
+
+.nav {
+  /*margin-bottom: 100px;*/
 }

@@ -5,7 +5,7 @@ var dimensions = ['meanfreq', 'sd', 'median', 'Q25', 'Q75', 'IQR', 'skew', 'kurt
 
 var radviz = radvizComponent()
     .config({
-        el: document.querySelector('.container'),
+        el: document.querySelector('.radviz'),
         colorAccessor: function(d){ return d['label']; },
         dimensions: dimensions,
         size: 700,
@@ -19,7 +19,7 @@ var radviz = radvizComponent()
         }
     });
 
-d3.csv('static/js/voice-gender-subset-20.csv', function(error, data){
+d3.csv('static/js/voice-gender-subset-50.csv', function(error, data){
   console.log(data);
   radviz.render(data);    
 });

@@ -4,17 +4,17 @@ var parcoords = d3.parcoords()("#example")
     
     // .height(d3.max([document.body.clientHeight-326, 220]))
     .height(500)
-    .width(1300)
+    .width(1250)
 
     .margin({
       top: 36,
       left: 30,
       right: 0,
-      bottom: 100
+      bottom: 30
     });
 
 // load csv file and create the chart
-d3.csv('static/js/voice-gender-subset-20.csv', function(data) {
+d3.csv('static/js/voice-gender-subset-50.csv', function(data) {
   // slickgrid needs each data element to have an id
   
   console.log(data)

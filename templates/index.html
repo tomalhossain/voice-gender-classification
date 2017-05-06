@@ -16,12 +16,12 @@
     <!-- END CSS LIB -->
     <!-- START CSS CUSTOM -->
     <link rel="stylesheet" type="text/css" href="static/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="static/css/radviz.css">  
+    <link rel="stylesheet" type="text/css" href="static/css/radviz.css">
     <!-- END CSS CUSTOM -->
     <!-- START JS LIB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js"></script>
-    <script src="https://rawgit.com/biovisualize/radviz/master/radviz-min.js"></script>    
+    <script src="https://rawgit.com/biovisualize/radviz/master/radviz-min.js"></script>
     <script type="text/javascript" src="static/lib/js/crossfilter.js"></script>
     <script type="text/javascript" src="static/lib/js/holder.js"></script>
     <script type="text/javascript" src="static/lib/js/jquery.js"></script>
@@ -39,30 +39,28 @@
     <script type="text/javascript" src="static/lib/js/d3.parcoords.js"></script>
     <script type="text/javascript" src="static/lib/js/smooth-scroll-master/dist/js/smooth-scroll.js"></script>
     <script>
-        smoothScroll.init();
+    smoothScroll.init();
     </script>
-
     <!-- END JS LIB -->
 </head>
 
 <body>
     <nav class="nav">
-      <div class="padded">
-        <ul>
-          <li class="active"><a href="#intro">Introduction</a></li>
-          <li><a data-scroll href="#parcoords">Parallel Coordinates</a></li>
-          <li><a data-scroll href="#scat-matrix">Scatterplot Matrix</a></li>
-          <li><a data-scroll href="#radviz">Radviz</a></li>
-          <li><a data-scroll href="#hist-matrix">Histogram Matrix</a></li>
-          <li class="scrollTop"><a href="#"><span class="entypo-up-open"></span></a></li>
-        </ul>
-      </div>
+        <div class="padded">
+            <ul>
+                <li class="active"><a href="#intro">Introduction</a></li>
+                <li><a data-scroll href="#parcoords">Parallel Coordinates</a></li>
+                <li><a data-scroll href="#scat-matrix">Scatterplot Matrix</a></li>
+                <li><a data-scroll href="#radviz">Radviz</a></li>
+                <li><a data-scroll href="#hist-matrix">Histogram Matrix</a></li>
+                <li class="scrollTop"><a href="#"><span class="entypo-up-open"></span></a></li>
+            </ul>
+        </div>
     </nav>
-
     <div class="row">
-        <div>  
+        <div>
             <h1 id="intro">Voice/Speech Gender Data </h1>
-            <p style="font-size: 17px; text-align:center">
+            <p style="font-size: 17px;">
                 UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
                 <br> Tomal Hossain (Amherst College '17)
             </p>
@@ -75,52 +73,48 @@
                 </blockquote>
         </div>
     </div>
-    
     <div class="row">
-        <div class="center-block">  
-          <h2 id="parcoords">Parallel Coordinates</h2>
-          <div id="example" class="parcoords center-block" style="height:500px"></div>
-        </div>
-        <!-- <div class="center-block">   -->
-          <div id="grid"></div>
-          <div id="pager"></div>
-        <!-- </div>   -->
+        <h2 id="parcoords">Parallel Coordinates</h2>
+        <div id="example" class="parcoords center-block" style="height:500px"></div>
+        <div id="grid"></div>
+        <div id="pager"></div>
     </div>
-    
-    <div class="row center-block">
-        <div class="center-block">  
+    <!--     <div class="row">
+        <div>  
             <h2 id="scat-matrix">Scatterplot Matrix</h2>
-            <div class="col-sm-6">
+            <div class="col-md-7">
                 <table id="scatterplot-matrix"></table>
             </div>
+            <div class="col-md-3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
+            </div>            
         </div>    
-    </div>
-
-    <div class="row">
-        <div class="center-block">  
+    </div> -->
+    <!--     <div class="row">
+        <div class="col-md-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
+        </div>   
+        <div class="col-md-6">
           <h2 id="radviz">Radviz</h2>   
-          <div class="container"></div>
+          <div class="radviz"></div>
           <div id="tooltip"></div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="center-block">  
+    </div> -->
+    <!--     <div class="row">
+        <div>  
             <h2 id="hist-matrix">Histogram Matrix</h2>
             <div id="meanfreqHist"></div>
             Stuff
         </div>
     </div>
-
+ -->
     </div>
     <!-- START JS CUSTOM-->
     <script type="text/javascript" src="static/js/charts.js"></script>
     <script type="text/javascript" src="static/js/parcoords.js"></script>
     <script type="text/javascript" src="static/js/radviz.js"></script>
     <script type="text/javascript" src="static/js/scatterplot_matrix.js"></script>
-
-    <!-- <script type="text/javascript" src="static/js/histogram-matrix.js"></script>    --> 
-
+    <!-- <script type="text/javascript" src="static/js/histogram-matrix.js"></script>    -->
     <!-- END JS CUSTOM -->
 </body>
 
