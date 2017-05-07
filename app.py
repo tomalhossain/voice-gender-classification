@@ -39,6 +39,18 @@ def projects ():
     return json_documents
 
 
+@app.route("/projects_categorized")
+def projects_categorized ():
+    connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
+    collection = connection[DBS_NAME]['projects_categorized']
+    documents = collection.find()
+    json_documents = []
+    for document in documents:
+        json_documents.append(document)
+    json_documents = json.dumps(json_documents, default=json_util.default)
+    connection.close()
+    return json_documents
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
 

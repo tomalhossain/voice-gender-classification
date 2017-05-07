@@ -4,7 +4,7 @@ var parcoords = d3.parcoords()("#example")
     
     // .height(d3.max([document.body.clientHeight-326, 220]))
     .height(500)
-    .width(1550)
+    .width(1300)
 
     .margin({
       top: 36,
