@@ -103,8 +103,8 @@ function makeGraphs(error, projectsJson) {
     var mindomBarGraph = dc.barChart("#mindom-bar-graph");
     var maxdomBarGraph = dc.barChart("#maxdom-bar-graph");   
 
-    var graph_width = 300
-    var graph_height = 200
+    var graph_width = 350
+    var graph_height = 250
 
     meanfreqBarGraph
         .width(graph_width)

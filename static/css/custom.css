@@ -1,72 +1,55 @@
-body,
-html
-{
-    height: 100%;
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body
-{
-    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.45em;
-
-    background: #fcfcfc;
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.nav ul 
-{
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    background-color: #333;
-    vertical-align: middle;
 
+body, html {
+  height: 100%;
 }
 
-.content ul {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+body {
+  font-size: 100%;
+  font-family: "Ubuntu", sans-serif;
+  color: #3e3947;
+  background-color: white;
 }
 
-li
-{
-    float: left;
+a {
+  /*color: #4286f4;*/
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-family: "Ubuntu", sans-serif;
+  /*color: #3e3947;*/
+  color: white;  
 }
 
-li a
-{
-    display: block;
-
-    padding: 14px 16px;
-
-    text-decoration: none;
-
-    color: white;
+a:hover {
+  text-decoration: none;
+  font-weight: bold;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover
-{
-    text-decoration: none;
-
-    background-color: #06c;
-}
-
-a
-{
-    color: #555;
-}
-a:hover
-{
-    color: #478fb6;
-    text-decoration: none;
+img {
+  max-width: 100%;
 }
 
 p
 {
-    width: 400px;
+    /*width: 400px;*/
     text-align: justify;      
 }
 pre
@@ -89,14 +72,16 @@ h1 small
 h1
 {
     font-size: 2em;
-    padding-top: 100px;
 }
 
 h2
 {
-    font-size: 1.8em;
+    text-align: center;
+    color: white;
     padding-top: 70px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+    font-size: 3em;
+
 }
 
 h3
@@ -125,6 +110,14 @@ button
     color: white;
     border: none;
     background-color: #2d79b7; /* Green */
+}
+
+
+.text {
+  font-size: 1.7em;
+  font-family: "Ubuntu", sans-serif;
+  /*color: #3e3947;*/
+  color: white;
 }
 
 .intro p {
@@ -166,8 +159,8 @@ button
 #grid
 {
     bottom: 0;
-
     height: 300px;
+    font-size: 1.5em;
 }
 #pager
 {
@@ -262,6 +255,7 @@ button
 
 #parcoords {
   text-align: center;
+  margin-bottom: 20px
 }
 
 hr {
@@ -269,7 +263,6 @@ hr {
 }
 
 .footer {
-  margin-top: 50px;
   padding: 20px;
   background-color: #333333;  
   font-size: 13px;

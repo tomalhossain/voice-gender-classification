@@ -1,10 +1,12 @@
 .panel {
     stroke: black;
-    fill: white;
+    /*fill: black;*/
+    fill: #745360;
+    
 }
 
 .bg {
-    fill: white;
+    fill: #745360;
 }
 
 .link {
@@ -25,12 +27,13 @@
 }
 
 .label {
-    fill: gray;
+    fill: white;
     pointer-events: none;
+    font-size:1em;
 }
 
 #tooltip {
-    font-size: 12px;
+    font-size: 1em;
     margin-top: 22px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;

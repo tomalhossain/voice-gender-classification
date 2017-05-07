@@ -1,5 +1,5 @@
 .parcoords > svg, .parcoords > canvas {
-  font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
   position: absolute;
 }
 .parcoords > canvas {
@@ -19,8 +19,9 @@
   stroke: rgba(0,0,0,0.6);
 }
 .parcoords .axis line, .parcoords .axis path {
-  fill: gray;
-  stroke-width:5px;
+  /*fill: gray;*/
+  fill: #3e3947;
+  stroke-width:3px;
   stroke: #00;
   shape-rendering: crispEdges;
 }
@@ -31,7 +32,7 @@
   -o-transition: opacity 0.3s;
 }
 .parcoords canvas.faded {
-  opacity: 0.25;
+  opacity: 0.95;
 }
 .parcoords {
 	-webkit-touch-callout: none;

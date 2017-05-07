@@ -17,6 +17,8 @@
     <!-- START CSS CUSTOM -->
     <link rel="stylesheet" type="text/css" href="static/css/custom.css">
     <link rel="stylesheet" type="text/css" href="static/css/radviz.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vertical_nav.css">
+
     <!-- END CSS CUSTOM -->
     <!-- START JS LIB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
@@ -45,122 +47,198 @@
 </head>
 
 <body>
-    <nav class="nav">
+
+    <nav id="cd-vertical-nav">
         <ul>
-            <li class="active"><a href="#intro">Introduction</a></li>
-            <li><a data-scroll href="#parcoords">Parallel Coordinates</a></li>
-            <li><a data-scroll href="#scat-matrix">Scatterplot Matrix</a></li>
-            <li><a data-scroll href="#radviz">Radviz</a></li>
-            <li><a data-scroll href="#hist-matrix">Histogram Matrix</a></li>
-            <li class="scrollTop"><a href="#"><span class="entypo-up-open"></span></a></li>
+            <li>
+                <a href="#section1" data-number="1">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Intro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section2" data-number="2">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">About</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section3" data-number="3">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Features</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section4" data-number="4">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Portfolio</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section5" data-number="5">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Pricing</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section6" data-number="6">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Contact</span>
+                </a>
+            </li>
         </ul>
     </nav>
-    <div class="content">
-        <div class="row centered">        
-            <img class="img" id="intro" src="../static/img/billie-holiday.jpg" alt="Billie Holiday" style="width:400px;height:300px;">
-            <img class="img" src="../static/img/prince.jpg" alt="Prince" style="width:400px;height:300px;">
-        </div>
-        <hr>        
-        <div class="row block intro">
-            <div>
-                <p> If your listening habits are like most others, you'd probably point to pitch over most other factors that go into distinguishing the voice of a male over that of a female. It goes without saying that men's vocal ranges are on average roughly an octave lower than that of women. In thinking about averages, however, one risks overlooking the overlap in average vocal range between relatively androgenous vocals samples of biological men and women. Becuase of this grey area, it's simply not enough to write a computer program to detect the average fundamental pitch of a vocal sample and classify it as either male or female based on some pitch cut-off. Average fundamental pitch is, unsurprisingly, a highly important factor, but there are many others  that lead us to perceive biological sex from the sound of one's voice. This webpage will feature a series of visualizations that will explore several salient concerns regarding identifying gender in voice through machine learning classification algorithms.  
-               
-                 The <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">dataset</a> being explored is pulled from data analytics performed on several thousand .wav files of speech/song samples compiled by <a href="http://www.primaryobjects.com/kory-becker/">Kory Becker</a>.</p>
-                <p>
-                    The dataset can be downloaded here on Kaggle. It consists of 3,168 observations with the following 21 variables: 
-                </p>
-                <br>
-                1 target variable:
-                <ol>
-                    <li>label (male or female)</li>
-                </ol>
-                <br>
-                20 independent variables:                    
-                <ol>
-                    <li><b>meanfreq</b>: mean frequency (in kHz)</li>
-                    <li><b>sd</b>: standard deviation of frequency</li>
-                    <li><b>median</b>: median frequency (in kHz)</li>
-                    <li><b>Q25</b>: first quantile (in kHz)</li>
-                    <li><b>Q75</b>: third quantile (in kHz)</li>
-                    <li><b>IQR</b>: interquantile range (in kHz)</li>
-                    <li><b>skew</b>: skewness (see note in specprop description)</li>
-                    <li><b>kurt</b>: kurtosis (see note in specprop description)</li>
-                    <li><b>sp.ent</b>: spectral entropy</li>
-                    <li><b>sfm</b>: spectral flatness</li>
-                    <li><b>mode</b>: mode frequency</li>
-                    <li><b>centroid</b>: frequency centroid (see specprop)</li>
-                    <li><b>meanfun</b>: mean fundamental frequency measured across acoustic signal</li>
-                    <li><b>minfun</b>: minimum fundamental frequency measured across acoustic signal</li>
-                    <li><b>maxfun</b>: maximum fundamental frequency measured across acoustic signal</li>
-                    <li><b>meandom</b>: mean of dominant frequency measured across acoustic signal</li>
-                    <li><b>mindom</b>: minimum of dominant frequency measured across acoustic signal</li>
-                    <li><b>maxdom</b>: maximum of dominant frequency measured across acoustic signal</li>
-                    <li><b>dfrange</b>: range of dominant frequency measured across acoustic signal</li>
-                    <li><b>modindx</b>: modulation index</li>
-                </ol>
-                <p> 
-                    With these hairy details in mind, let's get to exploring some questions regarding identifying gender in voice. 
-                </p>
-            </div>
-        </div>
-        <div class="row block">
-            <h2 id="parcoords">Parallel Coordinates</h2>
-            <div id="example" class="parcoords" style="height:400px; width: 85%"></div>
-            <div id="grid"></div>
-            <div id="pager"></div>
-        </div>
-        <div class="row">
-            <div>
-                <h2 id="scat-matrix">Scatterplot Matrix</h2>
-                <div class="col-md-7">
-                    <table id="scatterplot-matrix" class="block"></table>
-                </div>
-                <div class="col-md-3">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row block">
-            <h2 id="radviz">Radviz</h2>
-            <div class="col-md-6 ">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</p>
-            </div>
-            <div class="col-md-6">
-                <div class="radviz"></div>
-                <div id="tooltip"></div>
-            </div>
-        </div>
+    
+    <a class="cd-nav-trigger cd-img-replace">Open navigation<span></span></a>
 
-        <div class="row block">
-            <h2 id="hist-matrix">Histogram Matrix</h2>
-            <div class="col-md-4" id="meanfreq-bar-graph"></div>
-            <div class="col-md-4" id="sd-bar-graph"></div>
-            <div class="col-md-4" id="median-bar-graph"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-4" id="meanfun-bar-graph"></div>
-            <div class="col-md-4" id="minfun-bar-graph"></div>
-            <div class="col-md-4" id="maxfun-bar-graph"></div>
-        </div>   
-        <div class="row">
-            <div class="col-md-4" id="meandom-bar-graph"></div>
-            <div class="col-md-4" id="mindom-bar-graph"></div>
-            <div class="col-md-4" id="maxdom-bar-graph"></div>
-        </div>        
-
-
-
+<!--     <div class="row centered">        
+        <img class="img" id="intro" src="../static/img/billie-holiday.jpg" alt="Billie Holiday" style="width:400px;height:300px;">
+        <img class="img" src="../static/img/prince.jpg" alt="Prince" style="width:400px;height:300px;">
     </div>
-    <div class="footer">
-        <div class="content"> 
-            UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
-            <br> 
-            Tomal Hossain (Amherst College '17)
-            <br> 
-            <br>
-            <p><a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Dataset used in this webpage.</a></p>
+    <hr>   -->
+
+        <section id="section1" class="cd-section">
+            <a href="#section2" class="cd-scroll-down cd-img-replace">scroll down</a>
+            <h2>Introduction</h1>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <span class="text">
+                        If your listening habits are like most others, you'd probably point to pitch over most other factors that go into distinguishing the voice of a male over that of a female. It goes without saying that men's vocal ranges are on average roughly an octave lower than that of women. In thinking about averages, however, one risks overlooking the overlap in average vocal range between relatively androgenous vocals samples of biological men and women. Becuase of this grey area, it's simply not enough to write a computer program to detect the average fundamental pitch of a vocal sample and classify it as either male or female based on some pitch cut-off. Average fundamental pitch is, unsurprisingly, a highly important factor, but there are many others  that lead us to perceive biological sex from the sound of one's voice. This webpage will feature a series of visualizations that will explore several salient concerns regarding identifying gender in voice through machine learning classification algorithms. 
+                    </span> 
+                    <span class="text">
+                        The <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">dataset</a> being explored is pulled from data analytics performed on several thousand .wav files of speech/song samples compiled by <a href="http://www.primaryobjects.com/kory-becker/">Kory Becker</a>.</p>
+                    </span>
+
+                    <span class="text">
+                        The dataset can be downloaded here on Kaggle. It consists of 3,168 observations with the following 21 variables: 
+                    
+<!--                     <br>
+                    1 target variable:
+                    <ol>
+                        <li>label (male or female)</li>
+                    </ol>
+                    <br>
+                    20 independent variables:                    
+                    <ol>
+                        <li><b>meanfreq</b>: mean frequency (in kHz)</li>
+                        <li><b>sd</b>: standard deviation of frequency</li>
+                        <li><b>median</b>: median frequency (in kHz)</li>
+                        <li><b>Q25</b>: first quantile (in kHz)</li>
+                        <li><b>Q75</b>: third quantile (in kHz)</li>
+                        <li><b>IQR</b>: interquantile range (in kHz)</li>
+                        <li><b>skew</b>: skewness (see note in specprop description)</li>
+                        <li><b>kurt</b>: kurtosis (see note in specprop description)</li>
+                        <li><b>sp.ent</b>: spectral entropy</li>
+                        <li><b>sfm</b>: spectral flatness</li>
+                        <li><b>mode</b>: mode frequency</li>
+                        <li><b>centroid</b>: frequency centroid (see specprop)</li>
+                        <li><b>meanfun</b>: mean fundamental frequency measured across acoustic signal</li>
+                        <li><b>minfun</b>: minimum fundamental frequency measured across acoustic signal</li>
+                        <li><b>maxfun</b>: maximum fundamental frequency measured across acoustic signal</li>
+                        <li><b>meandom</b>: mean of dominant frequency measured across acoustic signal</li>
+                        <li><b>mindom</b>: minimum of dominant frequency measured across acoustic signal</li>
+                        <li><b>maxdom</b>: maximum of dominant frequency measured across acoustic signal</li>
+                        <li><b>dfrange</b>: range of dominant frequency measured across acoustic signal</li>
+                        <li><b>modindx</b>: modulation index</li>
+                    </ol>
+                    <p> 
+                        With these hairy details in mind, let's get to exploring some questions regarding identifying gender in voice. 
+                    </p> -->
+                    </span>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </section> <!-- cd-section -->
+        
+        <section id="section2" class="cd-section">
+            <!-- <a href="#section1" class="cd-scroll-up cd-img-replace">scroll up</a> -->
+            <a href="#section3" class="cd-scroll-down cd-img-replace">scroll down</a>
+            <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2 id="parcoords">Parallel Coordinates</h2>
+                <div id="example" class="parcoords" style="height:400px; width: 85%"></div>
+                <!-- <div id="grid"></div> -->
+<!--                 <div id="pager"></div>
+ -->            </div>
+            <div class="col-md-1"></div>
+            </div>
+        </section> <!-- cd-section -->
+
+        <section id="section3" class="cd-section">
+            <a href="#section4" class="cd-scroll-down cd-img-replace">scroll down</a>
+            <div class="row">
+            <h2>Scatterplot Matrix</h2>
+                <div class="col-md-1"></div>
+                    <div class="col-md-6 ">
+                        <table id="scatterplot-matrix" class="block"></table>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</span>
+                    </div>
+                <div class="col-md-1"></div>
+            </div>
+        </section> <!-- cd-section -->    
+
+        <section id="section4" class="cd-section">
+            <a href="#section5" class="cd-scroll-down cd-img-replace">scroll down</a>
+            <h2>Radviz</h2>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4 ">
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.</span>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+                    <div class="radviz"></div>
+                    <div id="tooltip"></div>
+                </div>
+            </div>
+        </section> <!-- cd-section -->
+
+        <section id="section5" class="cd-section">
+            <h2>Histogram Matrix</h2>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-2" id="meanfreq-bar-graph"></div>
+                <div class="col-md-2" id="sd-bar-graph"></div>
+                <div class="col-md-2" id="median-bar-graph"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-2" id="meanfun-bar-graph"></div>
+                <div class="col-md-2" id="minfun-bar-graph"></div>
+                <div class="col-md-2" id="maxfun-bar-graph"></div>
+                <div class="col-md-1"></div>            
+            </div>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-2" id="meandom-bar-graph"></div>
+                <div class="col-md-2" id="mindom-bar-graph"></div>
+                <div class="col-md-2" id="maxdom-bar-graph"></div>
+                <div class="col-md-1"></div>                
+            </div>
+        </section> <!-- cd-section -->
+
+
+    <section id="section6" class="cd-section">
+        <h2> Conclusion </h2>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <span class="text">    
+                UMASS Amherst, Data Visualization and Exploration (COMPSCI590V - Spring 2017)
+                <br> 
+                Tomal Hossain (Amherst College '17)
+                <br> 
+                <br>
+                <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">Dataset used in this webpage.</a>
+            </span>
         </div>
-    </div>  
+        <div class="col-md-4"></div>
+    </div> 
 
     <!-- START JS CUSTOM-->
     <script type="text/javascript" src="static/js/charts.js"></script>
@@ -168,6 +246,7 @@
     <script type="text/javascript" src="static/js/radviz.js"></script>
     <script type="text/javascript" src="static/js/scatterplot_matrix.js"></script>
     <script type="text/javascript" src="static/js/histogram-matrix.js"></script>   
+    <script type="text/javascript" src="static/js/vertical_nav.js"></script>
     <!-- END JS CUSTOM -->
 </body>
 
