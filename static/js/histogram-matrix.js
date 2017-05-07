@@ -7,58 +7,114 @@ function makeGraphs(error, projectsJson) {
     var documents = projectsJson;
     var ndx = crossfilter(documents);
 
+
     var meanfreqDim = ndx.dimension(function (d) { return d.meanfreqcategories; })
     var sdDim = ndx.dimension(function (d) { return d.sdcategories; })
     var medianDim = ndx.dimension(function (d) { return d.mediancategories; })
-    var Q25Dim = ndx.dimension(function (d) { return d.Q25categories; })
+    
+    var meanfunDim = ndx.dimension(function (d) { return d.meanfuncategories; })
+    var minfunDim = ndx.dimension(function (d) { return d.minfuncategories; })
+    var maxfunDim = ndx.dimension(function (d) { return d.maxfuncategories; })
+
+    var meandomDim = ndx.dimension(function (d) { return d.meandomcategories; })
+    var mindomDim = ndx.dimension(function (d) { return d.mindomcategories; })
+    var maxdomDim = ndx.dimension(function (d) { return d.maxdomcategories; })
+
+
 
     var meanfreqGroup = meanfreqDim.group(); 
     var sdGroup = sdDim.group(); 
     var medianGroup = medianDim.group();
-    var Q25Group = Q25Dim.group()
+    
+    var meanfunGroup = meanfunDim.group(); 
+    var minfunGroup = minfunDim.group(); 
+    var maxfunGroup = maxfunDim.group();
+
+    var meandomGroup = meandomDim.group(); 
+    var mindomGroup = mindomDim.group(); 
+    var maxdomGroup = maxdomDim.group();
+
+
 
     var meanfreqGroupReducer = reductio()
         .count(true)
         .sum(function(d) { return d.meanfreq; })
         .avg(true);
-
     var sdGroupReducer = reductio()
         .count(true)
         .sum(function(d) { return d.sd; })
         .avg(true);
-
     var medianGroupReducer = reductio()
         .count(true)
         .sum(function(d) { return d.median; })
         .avg(true);
 
-    var Q25GroupReducer = reductio()
+    var meanfunGroupReducer = reductio()
         .count(true)
-        .sum(function(d) { return d.Q25; })
+        .sum(function(d) { return d.meanfun; })
         .avg(true);        
+    var minfunGroupReducer = reductio()
+        .count(true)
+        .sum(function(d) { return d.minfun; })
+        .avg(true);  
+    var maxfunGroupReducer = reductio()
+        .count(true)
+        .sum(function(d) { return d.maxfun; })
+        .avg(true);  
+
+    var meandomGroupReducer = reductio()
+        .count(true)
+        .sum(function(d) { return d.meandom; })
+        .avg(true);        
+    var mindomGroupReducer = reductio()
+        .count(true)
+        .sum(function(d) { return d.mindom; })
+        .avg(true);  
+    var maxdomGroupReducer = reductio()
+        .count(true)
+        .sum(function(d) { return d.maxdom; })
+        .avg(true);  
+
 
     // Type group reducers  
     meanfreqGroupReducer(meanfreqGroup)
     sdGroupReducer (sdGroup)
     medianGroupReducer(medianGroup)
-    Q25GroupReducer(Q25Group) 
+    
+    meanfunGroupReducer(meanfunGroup) 
+    minfunGroupReducer(minfunGroup) 
+    maxfunGroupReducer(maxfunGroup) 
+
+    meandomGroupReducer(meandomGroup) 
+    mindomGroupReducer(mindomGroup) 
+    maxdomGroupReducer(maxdomGroup)             
+
 
     // Initialize Charts 
     var meanfreqBarGraph = dc.barChart("#meanfreq-bar-graph");
     var sdBarGraph = dc.barChart("#sd-bar-graph");
     var medianBarGraph = dc.barChart("#median-bar-graph");
-    var Q25BarGraph = dc.barChart("#Q25-bar-graph");    
 
-     
+    var meanfunBarGraph = dc.barChart("#meanfun-bar-graph");
+    var minfunBarGraph = dc.barChart("#minfun-bar-graph");
+    var maxfunBarGraph = dc.barChart("#maxfun-bar-graph");
+
+    var meandomBarGraph = dc.barChart("#meandom-bar-graph");
+    var mindomBarGraph = dc.barChart("#mindom-bar-graph");
+    var maxdomBarGraph = dc.barChart("#maxdom-bar-graph");   
+
+    var graph_width = 400
+    var graph_height = 200
+
     meanfreqBarGraph
-        .width(300)
-        .height(250)
+        .width(graph_width)
+        .height(graph_height)
         .margins({top: 10, right: 50, bottom: 40, left: 50})
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Groups by mean frequency of sound file (kHz)')
-        .yAxisLabel('Number of observations')
+        .xAxisLabel('Bins by mean frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
         .dimension(meanfreqDim)
         .barPadding(0.5)
         .outerPadding(0.1)
@@ -66,18 +122,18 @@ function makeGraphs(error, projectsJson) {
         .valueAccessor(function(d) { return +d.value.count; })
         .title(function(d) {
             return " Type:   " + d.key + "\n" +
-                   "Number of observations:   " + Math.round(d.value.count); 
+                   "# of observations:   " + Math.round(d.value.count); 
         }); 
 
     sdBarGraph
-        .width(300)
-        .height(250)
+        .width(graph_width)
+        .height(graph_height)
         .margins({top: 10, right: 50, bottom: 40, left: 50})
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Groups by standard deviation of sound file (kHz)')
-        .yAxisLabel('Number of observations')
+        .xAxisLabel('Bins by standard deviation of sound file (kHz)')
+        .yAxisLabel('# of observations')
         .dimension(sdDim)
         .barPadding(0.5)
         .outerPadding(0.3)
@@ -85,18 +141,18 @@ function makeGraphs(error, projectsJson) {
         .valueAccessor(function(d) { return +d.value.count; })
         .title(function(d) {
             return " Category:   " + d.key + "\n" +
-                   "Number of observations:   " + Math.round(d.value.count); 
+                   "# of observations:   " + Math.round(d.value.count); 
         }); 
 
     medianBarGraph
-        .width(300)
-        .height(250)
+        .width(graph_width)
+        .height(graph_height)
         .margins({top: 10, right: 50, bottom: 40, left: 50})
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Groups by median frequency of sound file (kHz)')
-        .yAxisLabel('Number of observations')
+        .xAxisLabel('Bins by median frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
         .dimension(medianDim)
         .barPadding(0.6)
         .outerPadding(0.4)
@@ -104,32 +160,137 @@ function makeGraphs(error, projectsJson) {
         .valueAccessor(function(d) { return +d.value.count; })
         .title(function(d) {
             return " Category:   " + d.key + "\n" +
-                   "Number of observations:   " + Math.round(d.value.count); 
+                   "# of observations:   " + Math.round(d.value.count); 
         }); 
 
-    Q25BarGraph
-        .width(300)
-        .height(250)
+
+    meanfunBarGraph
+        .width(graph_width)
+        .height(graph_height)
         .margins({top: 10, right: 50, bottom: 40, left: 50})
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Groups by Q25 frequency of sound file (kHz)')
-        .yAxisLabel('Number of observations')
-        .dimension(Q25Dim)
+        .xAxisLabel('Bins by mean fundamental frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
+        .dimension(meanfunDim)
         .barPadding(0.6)
         .outerPadding(0.4)
-        .group(Q25Group)
+        .group(meanfunGroup)
         .valueAccessor(function(d) { return +d.value.count; })
         .title(function(d) {
             return " Category:   " + d.key + "\n" +
-                   "Number of observations:   " + Math.round(d.value.count); 
+                   "# of observations:   " + Math.round(d.value.count); 
         }); 
+
+    minfunBarGraph
+        .width(graph_width)
+        .height(graph_height)
+        .margins({top: 10, right: 50, bottom: 40, left: 50})
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .brushOn(false)
+        .xAxisLabel('Bins by minimum fundamental frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
+        .dimension(minfunDim)
+        .barPadding(0.6)
+        .outerPadding(0.4)
+        .group(minfunGroup)
+        .valueAccessor(function(d) { return +d.value.count; })
+        .title(function(d) {
+            return " Category:   " + d.key + "\n" +
+                   "# of observations:   " + Math.round(d.value.count); 
+        }); 
+    
+    maxfunBarGraph
+        .width(graph_width)
+        .height(graph_height)
+        .margins({top: 10, right: 50, bottom: 40, left: 50})
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .brushOn(false)
+        .xAxisLabel('Bins by maximum fundamental frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
+        .dimension(maxfunDim)
+        .barPadding(0.6)
+        .outerPadding(0.4)
+        .group(maxfunGroup)
+        .valueAccessor(function(d) { return +d.value.count; })
+        .title(function(d) {
+            return " Category:   " + d.key + "\n" +
+                   "# of observations:   " + Math.round(d.value.count); 
+        }); 
+
+    meandomBarGraph
+        .width(graph_width)
+        .height(graph_height)
+        .margins({top: 10, right: 50, bottom: 40, left: 50})
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .brushOn(false)
+        .xAxisLabel('Bins by mean dominant frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
+        .dimension(meandomDim)
+        .barPadding(0.6)
+        .outerPadding(0.4)
+        .group(meandomGroup)
+        .valueAccessor(function(d) { return +d.value.count; })
+        .title(function(d) {
+            return " Category:   " + d.key + "\n" +
+                   "# of observations:   " + Math.round(d.value.count); 
+        }); 
+
+    mindomBarGraph
+        .width(graph_width)
+        .height(graph_height)
+        .margins({top: 10, right: 50, bottom: 40, left: 50})
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .brushOn(false)
+        .xAxisLabel('Bins by minimum dominant frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
+        .dimension(mindomDim)
+        .barPadding(0.6)
+        .outerPadding(0.4)
+        .group(mindomGroup)
+        .valueAccessor(function(d) { return +d.value.count; })
+        .title(function(d) {
+            return " Category:   " + d.key + "\n" +
+                   "# of observations:   " + Math.round(d.value.count); 
+        }); 
+
+    maxdomBarGraph
+        .width(graph_width)
+        .height(graph_height)
+        .margins({top: 10, right: 50, bottom: 40, left: 50})
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .brushOn(false)
+        .xAxisLabel('Bins by maximum dominant frequency of sound file (kHz)')
+        .yAxisLabel('# of observations')
+        .dimension(maxdomDim)
+        .barPadding(0.6)
+        .outerPadding(0.4)
+        .group(maxdomGroup)
+        .valueAccessor(function(d) { return +d.value.count; })
+        .title(function(d) {
+            return " Category:   " + d.key + "\n" +
+                   "# of observations:   " + Math.round(d.value.count); 
+        });                 
+
 
     // Render Graphs 
 
     meanfreqBarGraph.render(); 
     sdBarGraph.render(); 
     medianBarGraph.render();
-    Q25BarGraph.render();
+
+    meanfunBarGraph.render();
+    minfunBarGraph.render();
+    maxfunBarGraph.render();
+
+    meandomBarGraph.render();
+    mindomBarGraph.render();
+    maxdomBarGraph.render();
+
 };

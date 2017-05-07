@@ -260,6 +260,7 @@ hr {
 
 .footer {
   /*position: absolute;*/
+  margin-top: 50px;
   padding: 20px;
   background-color: #333333;  
   font-size: 13px;

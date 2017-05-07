@@ -1,8 +1,6 @@
 var parcoords = d3.parcoords()("#example")
     .alpha(0.4)
     .mode("queue") // progressive rendering
-    
-    // .height(d3.max([document.body.clientHeight-326, 220]))
     .height(500)
     .width(1300)
 
@@ -14,7 +12,7 @@ var parcoords = d3.parcoords()("#example")
     });
 
 // load csv file and create the chart
-d3.csv('static/js/voice-gender-subset-50.csv', function(data) {
+d3.csv('static/js/voice-gender-subset-50-parcoors.csv', function(data) {
   // slickgrid needs each data element to have an id
   
   console.log(data)
