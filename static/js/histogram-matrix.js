@@ -103,7 +103,7 @@ function makeGraphs(error, projectsJson) {
     var mindomBarGraph = dc.barChart("#mindom-bar-graph");
     var maxdomBarGraph = dc.barChart("#maxdom-bar-graph");   
 
-    var graph_width = 400
+    var graph_width = 300
     var graph_height = 200
 
     meanfreqBarGraph
@@ -113,7 +113,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by mean frequency of sound file (kHz)')
+        .xAxisLabel('Mean frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(meanfreqDim)
         .barPadding(0.5)
@@ -132,7 +132,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by standard deviation of sound file (kHz)')
+        .xAxisLabel('Standard deviation (kHz)')
         .yAxisLabel('# of observations')
         .dimension(sdDim)
         .barPadding(0.5)
@@ -151,7 +151,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by median frequency of sound file (kHz)')
+        .xAxisLabel('Median frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(medianDim)
         .barPadding(0.6)
@@ -171,7 +171,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by mean fundamental frequency of sound file (kHz)')
+        .xAxisLabel('Mean fundamental frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(meanfunDim)
         .barPadding(0.6)
@@ -190,7 +190,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by minimum fundamental frequency of sound file (kHz)')
+        .xAxisLabel('Minimum fundamental frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(minfunDim)
         .barPadding(0.6)
@@ -209,7 +209,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by maximum fundamental frequency of sound file (kHz)')
+        .xAxisLabel('Maximum fundamental frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(maxfunDim)
         .barPadding(0.6)
@@ -228,7 +228,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by mean dominant frequency of sound file (kHz)')
+        .xAxisLabel('Mean dominant frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(meandomDim)
         .barPadding(0.6)
@@ -247,7 +247,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by minimum dominant frequency of sound file (kHz)')
+        .xAxisLabel('Minimum dominant frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(mindomDim)
         .barPadding(0.6)
@@ -266,7 +266,7 @@ function makeGraphs(error, projectsJson) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .brushOn(false)
-        .xAxisLabel('Bins by maximum dominant frequency of sound file (kHz)')
+        .xAxisLabel('Maximum dominant frequency (kHz)')
         .yAxisLabel('# of observations')
         .dimension(maxdomDim)
         .barPadding(0.6)

@@ -65,8 +65,8 @@ d3.csv('static/js/voice-gender-subset-50.csv', function(error, csv) {
                     var showYAxis = x === 1, showXAxis = y === 4;
                     chart
                         .transitionDuration(0)
-                        .width(150 + (showYAxis?25:0))
-                        .height(150 + (showXAxis?20:0))
+                        .width(100 + (showYAxis?25:0))
+                        .height(100 + (showXAxis?20:0))
                         .margins({
                             left: showYAxis ? 40 : 8,
                             top: 20,

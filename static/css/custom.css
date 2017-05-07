@@ -2,8 +2,6 @@ body,
 html
 {
     height: 100%;
-/*    margin-right: 100px;
-    margin-left: 100px;*/
 }
 
 body
@@ -15,19 +13,21 @@ body
     background: #fcfcfc;
 }
 
-ul
+.nav ul 
 {
     overflow: hidden;
-
     margin: 0;
     padding: 0;
-
     list-style-type: none;
-
     background-color: #333;
-
     vertical-align: middle;
 
+}
+
+.content ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 li
@@ -66,7 +66,8 @@ a:hover
 
 p
 {
-    width: 500px;
+    width: 400px;
+    text-align: justify;      
 }
 pre
 {
@@ -126,6 +127,18 @@ button
     background-color: #2d79b7; /* Green */
 }
 
+.intro p {
+    width: 800px;
+}
+
+
+.img { 
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px; 
+}
+
 .dark
 {
     background: #222;
@@ -137,7 +150,7 @@ button
 }
 .centered
 {
-    text-align: center;
+  text-align: center;
 }
 .hide
 {
@@ -218,10 +231,6 @@ button
 
 /*Misc*/
 
-/*.padded li {
-  text-align: justify;
-}*/
-
 .nav
 {
     position: fixed;
@@ -245,8 +254,9 @@ button
 }
 
 .content {
-  margin-right: 250px;
-  margin-left: 300px;  
+  margin-top: 100px;
+  margin-right: 450px;
+  margin-left: 500px;  
 }
 
 
@@ -259,7 +269,6 @@ hr {
 }
 
 .footer {
-  /*position: absolute;*/
   margin-top: 50px;
   padding: 20px;
   background-color: #333333;  
@@ -268,8 +277,8 @@ hr {
 }
 
 .footer .content {
-  margin-right: 250px;
-  margin-left: 260px;  
+  margin-right: 450px;
+  margin-left: 460px;  
 }
 
 
