@@ -175,8 +175,12 @@ Main components
   margin-right: 10px;
   padding: .4em .5em;
   color: white;
-  font-size: 14px;
-  font-size: 0.875rem;
+/*  font-size: 14px;
+  font-size: 0.875rem;*/
+
+  font-size: 20px;
+  font-size: 2rem;
+
   -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
   -moz-transition: -moz-transform 0.2s, opacity 0.2s;
   transition: transform 0.2s, opacity 0.2s;

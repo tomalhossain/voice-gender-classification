@@ -1,6 +1,6 @@
 /* -------------------------------- 
 
-Primary style
+Primary styles
 
 -------------------------------- */
 
@@ -17,10 +17,6 @@ html * {
 }
 
 
-body, html {
-  height: 100%;
-}
-
 body {
   font-size: 100%;
   font-family: "Ubuntu", sans-serif;
@@ -28,13 +24,15 @@ body {
   background-color: white;
 }
 
+body, html {
+  height: 100%;
+}
+
 a {
-  /*color: #4286f4;*/
-  color: white;
+  color: #4087f9;
   text-decoration: none;
   font-size: 1em;
   font-family: "Ubuntu", sans-serif;
-  /*color: #3e3947;*/
   color: white;  
 }
 
@@ -49,7 +47,6 @@ img {
 
 p
 {
-    /*width: 400px;*/
     text-align: justify;      
 }
 pre
@@ -63,6 +60,7 @@ pre
     border: 1px solid #ccc;
     background: #f2f2f2;
 }
+
 h1 small
 {
     font-size: .5em;
@@ -78,9 +76,9 @@ h2
 {
     text-align: center;
     color: white;
-    padding-top: 70px;
-    padding-bottom: 30px;
-    font-size: 3em;
+    /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    font-size: 3.5em;
 
 }
 
@@ -89,65 +87,19 @@ h3
     margin-top: 40px;
 }
 
-input
-{
-    font-size: 16px;
-}
 
-button
-{
-    font-size: 16px;
+/* -------------------------------- 
 
-    display: inline-block;
+Custom styles
 
-    margin-bottom: 15px;
-    margin-left: 10px;
-    padding: 3px 10px;
-
-    text-align: center;
-    text-decoration: none;
-
-    color: white;
-    border: none;
-    background-color: #2d79b7; /* Green */
-}
+-------------------------------- */
 
 
 .text {
-  font-size: 1.7em;
+  font-size: 1.9em;
   font-family: "Ubuntu", sans-serif;
   /*color: #3e3947;*/
   color: white;
-}
-
-.intro p {
-    width: 800px;
-}
-
-
-.img { 
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 30px; 
-}
-
-.dark
-{
-    background: #222;
-}
-
-.float
-{
-    float: left;
-}
-.centered
-{
-  text-align: center;
-}
-.hide
-{
-    display: none;
 }
 
 #grid,
@@ -174,114 +126,4 @@ button
     font-weight: bold;
 
     color: #069;
-}
-
-.chart-wrapper .chart-title
-{
-    font-size: 1.2em;
-
-    text-align: center;
-
-    color: black;
-}
-
-.chart-wrapper .chart-stage
-{
-    padding: 10px;
-}
-
-/* Style Graph Axes Labels */
-
-.x-axis-label
-{
-    font-size: .9em;
-}
-
-.y-axis-label
-{
-    font-size: .9em;
-
-    padding-left: 10px;
-}
-
-.chart-wrapper .chart-notes
-{
-    font-size: .9em;
-}
-
-#group-text
-{
-    font-size: 1.4em;
-}
-
-/* Style Show/Hide Menus for major viz divisions */
-
-.toggle
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/*Misc*/
-
-.nav
-{
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    display: block;
-    float: left;
-    overflow: hidden;
-    width: 100%;
-    height: 60px;
-    margin-bottom: 150px;
-    font-size: 1.1em;    
-    text-align: center;
-    text-decoration: none;
-    background-color: #333;
-}
-
-.block
-{
-    margin-bottom: 50px;
-}
-
-.content {
-  margin-top: 100px;
-  margin-right: 450px;
-  margin-left: 500px;  
-}
-
-
-#parcoords {
-  text-align: center;
-  margin-bottom: 20px
-}
-
-hr {
-  border-width: 1px;
-}
-
-.footer {
-  padding: 20px;
-  background-color: #333333;  
-  font-size: 13px;
-  color: #FFFFFF;
-}
-
-.footer .content {
-  margin-right: 450px;
-  margin-left: 460px;  
-}
-
-
-.footer a
-{
-    color: #FFFFFF;
-}
-
-.footer a:hover
-{
-    color: #478fb6;
-    text-decoration: none;
 }
