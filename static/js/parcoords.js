@@ -1,8 +1,8 @@
 var parcoords = d3.parcoords()("#example")
     .alpha(0.4)
     .mode("queue") // progressive rendering
-    .height(450)
-    .width(1400)
+    .height(500)
+    .width(1500)
 
     .margin({
       top: 36,

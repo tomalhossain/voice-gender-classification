@@ -57,31 +57,31 @@
             <li>
                 <a href="#section2" data-number="2">
                     <span class="cd-dot"></span>
-                    <span class="cd-label">About</span>
+                    <span class="cd-label">Min's, Mean's, and Max's</span>
                 </a>
             </li>
             <li>
                 <a href="#section3" data-number="3">
                     <span class="cd-dot"></span>
-                    <span class="cd-label">Features</span>
+                    <span class="cd-label">Quartiles</span>
                 </a>
             </li>
             <li>
                 <a href="#section4" data-number="4">
                     <span class="cd-dot"></span>
-                    <span class="cd-label">Portfolio</span>
+                    <span class="cd-label">Shape and Energy</span>
                 </a>
             </li>
             <li>
                 <a href="#section5" data-number="5">
                     <span class="cd-dot"></span>
-                    <span class="cd-label">Pricing</span>
+                    <span class="cd-label">Dominant Factors</span>
                 </a>
             </li>
             <li>
                 <a href="#section6" data-number="6">
                     <span class="cd-dot"></span>
-                    <span class="cd-label">Contact</span>
+                    <span class="cd-label">Conclusion</span>
                 </a>
             </li>
         </ul>
@@ -148,7 +148,7 @@
         </section>
         
         <section id="section2" class="cd-section">
-            <h2>Distributions</h2>
+            <h2>Min's, Mean's, and Max's</h2>
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-4">
@@ -264,7 +264,7 @@
                         <br>
                         <br>
     
-                        It is worth dwelling on why exactly the data is not more clearly partitioned than the current display allows for. The visualization's lack of clear-cut partitioning actually illustrates one of the biggest takeaways of this visualization series in general. That is, male and female voices do not neatly reflect the binary of biological sex. There is considerable variability in pitch and speaking patterns that make the classification of voices by gender fuzzy. Nonetheless, we'll see in the next section how certain socializing factors lead to speech patterns that tend to accentuate the divide in speaking/singing patterns between men and women.                      
+                        It is worth dwelling on why exactly the data is not more clearly partitioned than the current display allows for. The visualization's lack of clear-cut partitioning actually illustrates one of the biggest takeaways of this visualization series in general. That is, male and female voices do not neatly reflect the binary of biological sex. There is considerable variability in pitch and speaking patterns that make the classification of voices by gender fuzzy.                      
 
                     </span>
 
@@ -282,30 +282,47 @@
     <section id="section6" class="cd-section">
         <h2>Conclusion</h2>
             <div class="row">
-                <div class="col-md-1"></div>
+                <div class="col-md-2"></div>
                 <div class="col-md-4">
-                    <span class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit eros ut neque imperdiet facilisis. Donec maximus ultrices neque sed sodales. Aenean sit amet imperdiet orci. Etiam vestibulum nunc ipsum, ut ultricies massa porttitor quis. Proin blandit urna ultrices risus hendrerit, non aliquam orci condimentum. Nam vitae nisi sem. Vestibulum sodales pharetra libero eget placerat. Phasellus cursus turpis at diam tincidunt suscipit quis eget erat. In dictum commodo massa nec semper. Maecenas ullamcorper facilisis urna nec pretium. Mauris tempus gravida imperdiet. Nulla vel est nisi. Phasellus aliquam tempor lacus, at placerat ligula elementum ac. Donec nisi odio, interdum nec gravida sed, posuere quis lacus.
-                    </span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="text">
+                                It goes without saying that most human beings are not able to accurately classify hundreds or thousands, in this case, of vocal samples by the biological sex of their speakers or singers. Surely, mean fundamental frequency, or the base pitch at which people speak or sing, is by far the most impactful factor in the classification process both for computer generated classification models and our own human ears. Nonetheless, over a dozen other factors are influential in boosting the accuracy of computer generated models from human level accuracy to nearly 100% accuracy. As we've seen, the rest of these factors aren't equally influential. Neither are they all very influential at all. Of the 20 variables included in this dataset, mean fundamental frequency, sd, Q25, IQR, mode, sp.ent, and sfm are the most important in the classification process. The influence of the other 13 variables is relatively much more ambiguous.    
+                            </span>
+                        </div> 
+                    </div>
+                   <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">                    
+                            <img src="../static/img/frank-sinatra.jpg" style="width: 200%; height: 200%; margin-top: 60px;" class="img-responsive img-circle" alt="Billie Holiday in front of microphone">       
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
                 </div>
-                <div class="col-md-1"></div>
                 <div class="col-md-4">
                    <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">                    
-                            <img src="../static/img/frank-sinatra.jpg" class="img-responsive img-circle" alt="Frank Sinatra in front of microphone">       
+                            <img src="../static/img/billie-holiday.jpg" style="width: 200%; height: 200%" class="img-responsive img-circle" alt="Frank Sinatra in front of microphone">       
                         </div>
                         <div class="col-md-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <span class="text">
-                                If your listening habits are like most others, you associate high pitch with women's voices and low pitch with men's voices. On average, men's speaking voices are an octave lower than that of women. Thinking only in terms of averages, however, one risks overlooking the overlap in average vocal range between biological men and women. A computer program that classifies gender solely by average speaking/singing pitch will necessarily miss out on the androgenous gray area of speech patterns shared between biological men and women. Indeed, humans listen to much more than just average pitches when identifying gender from one's voice. The following series of visualizations will explore several salient variables that factor in this identification process. The <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">dataset</a> used for purpose of this exploration is the result of various data analytics performed on several thousand .wav files of speech/song samples compiled by <a href="http://www.primaryobjects.com/kory-becker/">Kory Becker</a>.
+                                So you can safely exit your browser having navigated this webpage with the following handful of insights at your disposal - 
+                                <ul style="padding-left:30px">
+                                    <li>Nuanced speech pattern factors such as inflection and emphasis enable <a href=https://medium.com/@jameschen_78678/predict-gender-with-voice-and-speech-data-347f437fc4da>various computer models</a> to accurately classify vocal samples as either male or female.</li>
+                                    <li>These nuanced factors are likely to be the result of socializing factors opposed to the raw genetic influence on mean fundamental pitch difference between women and men on average. </li>
+                                    <li>Unlike fundamental frequency, dominant and general frequency calculations are not highly important in the classification process.</li>
+                                    <li>The majority of analytics that can be performed on speech/song samples of men's and women's voices such as the 20 variables utilized in this dataset  are not particularly helpful in naturally partitioning a dataset composed of men's and women's vocal samples by biological sex.</li>
+                                    <li>The majority of these analytics aren't highly correlated with one another as well. This fact confirms the androgenous gray area between men's and women's voices that complicates classification one way or another.</li>
+                                </ul>
                             </span>
                         </div> 
                     </div>
                 </div>
-                <div class="col-md-2"></div>                
+                <div class="col-md-1"></div>                
             </div>
 
     <!-- START JS CUSTOM-->

@@ -1,6 +1,5 @@
 // var dimensions = ['meanfreq', 'median', 'sd', 'Q25', 'IQR', 'Q75', 'skew', 'kurt', 'sp.ent', 'sfm', 'mode', 'centroid', 'meanfun', 'minfun', 'maxfun', 'meandom', 'mindom', 'maxdom', 'dfrange', 'modindx'];
-// var dimensions = ['mode', 'meandom', 'maxdom', 'dfrange', 'meanfreq', 'Q25', 'centroid', 'median', 'Q75', 'sd', 'IQR', 'sfm', 'sp.ent', 'skew', 'kurt', 'meanfun', 'minfun', 'maxfun', 'mindom']
-// var dimensions = ['mode', 'meandom', 'maxdom', 'dfrange', 'meanfreq', 'Q25', 'centroid', 'median', 'Q75', 'sd', 'IQR', 'sfm', 'sp.ent', 'skew', 'kurt', 'meanfun', 'minfun', 'maxfun', 'mindom']
+var dimensions = ['mode', 'meandom', 'maxdom', 'dfrange', 'meanfreq', 'Q25', 'centroid', 'median', 'Q75', 'sd', 'IQR', 'sfm', 'sp.ent', 'skew', 'kurt', 'meanfun', 'minfun', 'maxfun', 'mindom']
 // var dimensions = ['mode', 'meandom', 'maxdom', 'dfrange', 'meanfreq', 'Q25', 'centroid', 'median', 'Q75', 'sd', 'IQR', 'sfm', 'sp.ent', 'skew', 'kurt']
 // var dimensions = ['meanfreq', 'Q25', 'centroid', 'median', 'Q75', 'sd', 'IQR', 'sfm', 'sp.ent', 'skew', 'kurt']
 

@@ -46,11 +46,10 @@ a:hover {
 }
 
 img {
-  /*max-width: 100%;*/
+  max-width: 200%;
   margin-bottom: 40px; 
-  width: 400px;
-  height: 400px
 }
+
 
 p
 {
@@ -162,6 +161,4 @@ Custom styles
 
 .parcoords {
   margin-top: 50px;
- /* font-size: 3em;*/
-  /*color: white;  */
 }
