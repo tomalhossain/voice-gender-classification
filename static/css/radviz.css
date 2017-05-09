@@ -1,9 +1,10 @@
 .panel {
     stroke: black;
-    /*fill: black;*/
     fill: #745360;
-    
+
 }
+
+
 
 .bg {
     fill: #745360;
@@ -29,7 +30,7 @@
 .label {
     fill: white;
     pointer-events: none;
-    font-size:1em;
+    font-size: 1.5em;
 }
 
 #tooltip {

@@ -1,5 +1,5 @@
 .parcoords > svg, .parcoords > canvas {
-  font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
   position: absolute;
 }
 .parcoords > canvas {
@@ -13,16 +13,17 @@
 }
 .parcoords .resize rect {
   fill: rgba(0,0,0,0.1);
+
 }
 .parcoords rect.extent {
   fill: rgba(255,255,255,0.25);
   stroke: rgba(0,0,0,0.6);
 }
 .parcoords .axis line, .parcoords .axis path {
-  /*fill: gray;*/
-  fill: #3e3947;
-  stroke-width:3px;
-  stroke: #00;
+  /*fill: white;*/
+  /*stroke-width:0.01em;*/
+  /*stroke: #00;*/
+  /*stroke: #bda3ad;*/
   shape-rendering: crispEdges;
 }
 .parcoords canvas {

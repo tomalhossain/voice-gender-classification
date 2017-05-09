@@ -22,13 +22,16 @@ Main components
   padding: 2em 0;
 }
 .cd-section:nth-of-type(odd) {
-  background-color: #3e3947;
+  /*background-color: #3e3947;*/
+  background-color: #745360;
 }
 .cd-section:nth-of-type(odd) p {
   color: #898099;
 }
 .cd-section:nth-of-type(even) {
-  background-color: #745360;
+  /*background-color: #745360;*/
+  background-color: #3e3947;
+
 }
 .cd-section:nth-of-type(even) p {
   color: #bda3ad;
@@ -175,9 +178,6 @@ Main components
   margin-right: 10px;
   padding: .4em .5em;
   color: white;
-/*  font-size: 14px;
-  font-size: 0.875rem;*/
-
   font-size: 20px;
   font-size: 2rem;
 

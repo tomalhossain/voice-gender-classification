@@ -28,6 +28,10 @@ body, html {
   height: 100%;
 }
 
+svg {
+
+}
+
 a {
   color: #4087f9;
   text-decoration: none;
@@ -42,7 +46,10 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
+  /*max-width: 100%;*/
+  margin-bottom: 40px; 
+  width: 400px;
+  height: 400px
 }
 
 p
@@ -76,15 +83,26 @@ h2
 {
     text-align: center;
     color: white;
-    /*padding-top: 20px;*/
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     font-size: 3.5em;
-
 }
 
 h3
 {
     margin-top: 40px;
+}
+
+ul {
+  margin-left: 0;
+  padding: 0;
+  cursor: default;
+  text-align: left;
+}
+
+li {
+  background: url("../images/arrow_right_spearmint.png") no-repeat center left;
+  padding: 0 0 0 14px;
+  margin: 0;
 }
 
 
@@ -94,12 +112,15 @@ Custom styles
 
 -------------------------------- */
 
+.row {
+  text-align: justify;
+}
 
 .text {
-  font-size: 1.9em;
+  font-size: 1.7em;
   font-family: "Ubuntu", sans-serif;
-  /*color: #3e3947;*/
   color: white;
+
 }
 
 #grid,
@@ -113,6 +134,7 @@ Custom styles
     bottom: 0;
     height: 300px;
     font-size: 1.5em;
+    /*background-color: #745360;*/
 }
 #pager
 {
@@ -126,4 +148,20 @@ Custom styles
     font-weight: bold;
 
     color: #069;
+}
+
+#scatterplot-matrix {
+  font-size: 1.7em;
+  color: white;
+}
+
+#example {
+  font-size: 3em;
+  color: white; 
+}
+
+.parcoords {
+  margin-top: 50px;
+ /* font-size: 3em;*/
+  /*color: white;  */
 }

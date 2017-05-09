@@ -17,7 +17,9 @@ classes should alter those!
 }
 
 .slick-headerrow {
-  background: #fafafa;
+  /*background: #fafafa;*/
+  background: blue;
+
 }
 
 .slick-headerrow-column {

@@ -1,18 +1,6 @@
 @import url('slick-default-theme.css');
 
-ul {
-  margin-left: 0;
-  padding: 0;
-  cursor: default;
-}
 
-li {
-  background: url("../images/arrow_right_spearmint.png") no-repeat center left;
-  padding: 0 0 0 14px;
-
-  list-style: none;
-  margin: 0;
-}
 
 #grid {
   background: white;

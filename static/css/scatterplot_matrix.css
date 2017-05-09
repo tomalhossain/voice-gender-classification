@@ -1,52 +1,50 @@
- html, body {
-  margin: 0;
-  width: 100%;
-  }
-  code {
-      color: black;
-  }
-  #page {
-      height: 95vh;
-      width: 100%;
-  }
-  tr.heading td div {
-      text-align: center;
-  }
-  td.heading {
-      position: relative;
-  }
-  tr.row:not(.heading) td.heading div {
-      white-space: nowrap;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
-  }
-  .chart-holder {
-      padding: 0 1em;
-  }
-  path.left {
-      stroke: #1f77b4;
-  }
-  path.right {
-      stroke: #ff7f0e;
-  }
-  path.horizontal {
-      stroke-width: 1;
-      stroke-opacity: 0.5;
-  }
-  path.zero {
-      stroke-dasharray: 4, 4;
-  }
-  path.zero.right {
-      stroke-dashoffset: 4;
-  }
-  path.extreme {
-      stroke-dasharray: 1, 1;
-  }
-  path.extreme.right {
-      stroke-dashoffset: 1;
-  }
-  .axis > path {
-      display: none;
+code {
+    color: black;
+}
+#page {
+    height: 95vh;
+    width: 100%;
+}
+tr.heading td div {
+    text-align: center;
+}
+td.heading {
+    position: relative;
+
+}
+tr.row:not(.heading) td.heading div {
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+
+}
+.chart-holder {
+    padding: 0 1em;
+}
+path.left {
+    stroke: #1f77b4;
+}
+path.right {
+    stroke: #ff7f0e;
+}
+path.horizontal {
+    stroke-width: 1;
+    stroke-opacity: 0.5;
+}
+path.zero {
+    stroke-dasharray: 4, 4;
+}
+path.zero.right {
+    stroke-dashoffset: 4;
+}
+path.extreme {
+    stroke-dasharray: 1, 1;
+}
+path.extreme.right {
+    stroke-dashoffset: 1;
+}
+.axis > path {
+    display: none;
 }
