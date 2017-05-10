@@ -13,6 +13,48 @@ if(location.search.indexOf('nowait')!==-1) {
     d3.select('#wait-url').attr('href', location.origin + location.pathname + '?nowait');
 }
 
+// Legend
+var jsonCircles = [
+  { "x_axis": 60, "y_axis": 14, "radius": 8, "color" : "#2176b3" },
+  { "x_axis": 177, "y_axis": 14, "radius": 8, "color" : "#d57227"}];
+
+
+svgContainer = d3.select("#gender-legend-1")
+
+
+
+var circles = svgContainer.selectAll("circle")
+                        .data(jsonCircles)
+                        .enter()
+                        .append("circle");
+
+
+var circleAttributes = circles
+                     .attr("cx", function (d) { return d.x_axis; })
+                     .attr("cy", function (d) { return d.y_axis; })
+                     .attr("r", function (d) { return d.radius; })
+                     .style("fill", function(d) { return d.color; });
+
+var maleText = svgContainer.select("#male-label")
+var maleLabel = maleText
+                .attr("x", 10)
+                .attr("y", 20)                
+                .text( "Male")
+                .attr("font-family", "Ubuntu")
+                .attr("font-size", "1.6em")
+                .attr("fill", "white");
+
+
+var femaleText = svgContainer.select("#female-label")
+var femaleLabel = femaleText
+                .attr("x", 110)
+                .attr("y", 20)                
+                .text( "Female")
+                .attr("font-family", "Ubuntu")
+                .attr("font-size", "1.6em")
+                .attr("fill", "white");
+
+
 d3.csv('static/js/voice-gender-subset-50.csv', function(error, csv) {
     if (error) throw new Error(error);
     csv.forEach(function(d) {
@@ -66,7 +108,7 @@ d3.csv('static/js/voice-gender-subset-50.csv', function(error, csv) {
                     chart
                         .transitionDuration(0)
                         .width(170 + (showYAxis?25:0))
-                        .height(170 + (showXAxis?20:0))
+                        .height(150 + (showXAxis?20:0))
                         .margins({
                             left: showYAxis ? 40 : 25,
                             top: 20,

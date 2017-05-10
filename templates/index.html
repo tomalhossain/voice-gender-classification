@@ -40,6 +40,7 @@
     <script type="text/javascript" src="static/lib/js/d3.parcoords.js"></script>
     <script type="text/javascript" src="static/lib/js/smooth-scroll-master/dist/js/smooth-scroll.js"></script>
     <script type ="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js" defer></script>    
 
     <!-- END JS LIB -->
 </head>
@@ -110,8 +111,8 @@
                         </div> 
                     </div>
                 </div>
-                <div class="col-md-1"></div>                
-                <div class="col-md-5">
+                <!-- <div class="col-md-1"></div>                 -->
+                <div class="col-md-5" style="margin-top: 40px">
                     <span class="text">
                     1 target variable:
                     <ol>
@@ -151,8 +152,8 @@
             <h2>Min's, Mean's, and Max's</h2>
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-4">
-                    <span class="text">
+                <div class="col-md-4" style="margin-top: 100px; margin-right: 20px">
+                    <span class="text" >
                         Let us begin by getting a sense of where the various means, mins, and max's lie within our dataset. General frequency refers to processing applied to the wavforms of each vocal sample on a whole. Fundamental frequency concerns the base pitch at which one speaks or sings, upon which harmonics are naturally generated. Dominant frequency concerns the most present frequencies measures for the entire duration of each vocal sample. The 3168 observations of the entire dataset were partitioned into 9 bins by equally spaced intervals of kHz (kiloherz). Observation counts are graphed for each of the 9 variables relating to means, mins, and max's. Click on any of the bars to engage the other linked graphs that contain shared observations. Click once again to deselect a selection.
                     <br>
                     <br>
@@ -163,9 +164,8 @@
                     </ul>
 
                     </span> 
-                </div>
-                <!-- <div class="col-md-1"></div> -->
-                <div class="col-md-6">
+                </div>                
+                <div class="col-md-6" id="bargraphs">
                     <div class="row">
                         <div class="col-md-2" id="meanfreq-bar-graph"></div>
                         <div class="col-md-2"></div>
@@ -194,15 +194,41 @@
             </div>
         </section> 
 
-
         <section id="section3" class="cd-section">
             <div class="row">
             <h2>Quartiles</h2>
                 <div class="col-md-1"></div>
                     <div class="col-md-6 ">
-                        <table id="scatterplot-matrix"></table>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <svg id="gender-legend-1" style="margin-bottom: 30px">
+                                            <text id="male-label"></text>
+                                            <text id="female-label"></text>
+                                        </svg>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="scatterplot-matrix"></table>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-3"></div> 
+                            <div class="col-md-4">
+                               <span class="text">
+                                    Values for all axes in kiloherz (kHz) 
+                                </span> 
+                            </div>
+                            <div class="col-md-5"></div> 
+                        </div> 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-top: 100px">
                         <span class="text">
                             Let's now see at how pairs of variables of our dataset compare to one another. Click and drag a selection rectangle in any given quadrant to see where the selected points appear in the other graphs. Dragging your rectangular selection within a quadrant engages the selection in the other graphs as well. Clicking once outside the selection de-selects your selection.   
                         <br>
@@ -241,11 +267,19 @@
                         </div>
                         <div class="col-md-1"></div>                        
                     </div>
-
                     <div class="row">
                         <div class="col-md-10">
                             <div id="example" class="parcoords" style="height:500px; width: 85%"></div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5"></div> 
+                        <div class="col-md-4">
+                           <span class="text">
+                                Values for all axes in kiloherz (kHz) 
+                            </span> 
+                        </div>
+                        <div class="col-md-3"></div> 
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -255,8 +289,8 @@
         <section id="section5" class="cd-section">
             <h2>Dominant Factors</h2>
             <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-4 ">
+                <div class="col-md-2"></div>
+                <div class="col-md-4" style="margin-top: 130px">
                     <span class="text">
 
                         So far, we've been able to examine our dataset from several particular angles. We've gotten a sense of how the data is distributed, interesting correlations in the data, and variables that work best at partitioning the data. Last but not least, let's get an overview of how the 20 input variables in our dataset factor into each of our data points. Although two clusters for male and female labeled data points is not 100% clear, there certainly is some degree of natural partitioning apparent in the radviz display. Specifically, the female data points (colored orange) have higher values for meanfreq, dfrange, maxdom, and meandom, which leads the points to skew towards those directions. Your intuition is correct if you guessed this influence mainly has to due with the fact that females' voices are higher on average than men's. 
@@ -269,10 +303,30 @@
                     </span>
 
                 </div>
-                <div class="col-md-1"></div>
+                <!-- <div class="col-md-1"></div> -->
                 <div class="col-md-6">
-                    <div class="radviz"></div>
-                    <div id="tooltip"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-5">
+                                    <svg id="gender-legend-2">
+                                        <text id="male-label"></text>
+                                        <text id="female-label"></text>
+                                    </svg>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                    </div>                
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="radviz"></div>
+                            <div id="tooltip"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section> 
@@ -310,7 +364,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <span class="text">
-                                So you can safely exit your browser having navigated this webpage with the following handful of insights at your disposal - 
+                                So you can safely exit your browser having navigated this webpage with the following handful of insights at your disposal: 
                                 <ul style="padding-left:30px">
                                     <li>Nuanced speech pattern factors such as inflection and emphasis enable <a href=https://medium.com/@jameschen_78678/predict-gender-with-voice-and-speech-data-347f437fc4da>various computer models</a> to accurately classify vocal samples as either male or female.</li>
                                     <li>These nuanced factors are likely to be the result of socializing factors opposed to the raw genetic influence on mean fundamental pitch difference between women and men on average. </li>

@@ -1,9 +1,7 @@
 .panel {
-    stroke: black;
+    stroke: white;
     fill: #745360;
-
 }
-
 
 
 .bg {
@@ -20,7 +18,7 @@
 }
 
 .label-node {
-    fill: silver;
+    fill: white;
 }
 
 .active {
@@ -34,13 +32,18 @@
 }
 
 #tooltip {
-    font-size: 1em;
+    font-size: 3em;
     margin-top: 22px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
+    fill: white;
 }
 
 #tooltip h1 {
-    font-size: 14px;
+    font-size: 5em;
     margin: 0;
+}
+
+#radviz-tooltip {
+    fill: white;
 }
