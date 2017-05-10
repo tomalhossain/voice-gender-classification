@@ -1,7 +1,7 @@
-alabaster==0.7.9
-anaconda-client==1.6.0
-anaconda-navigator==1.5
-anaconda-project==0.4.1
+alabaster
+anaconda-client
+anaconda-navigator
+anaconda-project
 astroid==1.4.9
 astropy==1.3
 Babel==2.3.4
