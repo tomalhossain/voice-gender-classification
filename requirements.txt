@@ -54,7 +54,6 @@ lxml==3.7.2
 MarkupSafe==0.23
 matplotlib==2.0.0
 mistune==0.7.3
-mongoengine
 mpmath==0.19
 multipledispatch==0.4.9
 nbconvert==4.2.0

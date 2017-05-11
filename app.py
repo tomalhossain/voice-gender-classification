@@ -7,12 +7,17 @@ from bson.json_util import dumps
 
 app = Flask(__name__)
 
-uri = 'mongodb://heroku_z7cd67wr:vqp1uo1a2se2t57mqsjbb50djp@ds137281.mlab.com:37281/heroku_z7cd67wr'
+# uri = 'mongodb://heroku_z7cd67wr:vqp1uo1a2se2t57mqsjbb50djp@ds137281.mlab.com:37281/heroku_z7cd67wr'
 
 # MONGODB_HOST = 'localhost'
 # MONGODB_PORT = 27017
 # DBS_NAME = 'voice'
 # COLLECTION_NAME = 'projects'
+
+ 
+MONGODB_HOST = 'ds137281.mlab.com'
+MONGODB_PORT = 37281
+DBS_NAME = 'heroku_z7cd67wr'
 
 @app.route("/")
 def index (): 
@@ -21,10 +26,10 @@ def index ():
 
 @app.route("/projects")
 def projects ():
-    # connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
-    client = MongoClient(uri)
-    collection = client['heroku_z7cd67wr']['projects']
-    #collection = connection[DBS_NAME][COLLECTION_NAME]
+    connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
+    collection = connection[DBS_NAME]['projects']
+    # client = MongoClient(uri)
+    # collection = client['heroku_z7cd67wr']['projects']
     documents = collection.find()
     json_documents = []
     for document in documents:
@@ -36,10 +41,10 @@ def projects ():
 
 @app.route("/projects_categorized")
 def projects_categorized ():
-    # connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
-    client = MongoClient(uri)
-    collection = client['heroku_z7cd67wr']['projects_categorized']
-    #collection = connection[DBS_NAME][COLLECTION_NAME]
+    connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
+    collection = connection[DBS_NAME]['projects_categorized']
+    # client = MongoClient(uri)
+    # collection = client['heroku_z7cd67wr']['projects_categorized']
     documents = collection.find()
     json_documents = []
     for document in documents:
