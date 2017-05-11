@@ -42,8 +42,6 @@ d3.csv('static/js/voice-gender-subset-50-parcoors.csv', function(data) {
   };
 
   var dataView = new Slick.Data.DataView();
-  var grid = new Slick.Grid("#grid", dataView, columns, options);
-  var pager = new Slick.Controls.Pager(dataView, grid, $("#pager"));
 
   // wire up model events to drive the grid
   dataView.onRowCountChanged.subscribe(function (e, args) {
