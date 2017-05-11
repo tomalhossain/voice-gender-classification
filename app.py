@@ -1,13 +1,3 @@
-'''
-
-CITATIONS 
-
-http://codehandbook.org/pymongo-tutorial-crud-operation-mongodb/
-https://gist.github.com/mprajwala/849b5909f5b881c8ce6a
-http://adilmoujahid.com/posts/2015/01/interactive-data-visualization-d3-dc-python-mongodb/
-
-'''
-
 from flask import Flask, render_template
 from pymongo import MongoClient 
 import json 
@@ -15,15 +5,14 @@ import sys
 from bson import json_util
 from bson.json_util import dumps
 
-
 app = Flask(__name__)
 
 uri = 'mongodb://heroku_z7cd67wr:vqp1uo1a2se2t57mqsjbb50djp@ds137281.mlab.com:37281/heroku_z7cd67wr'
 
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
-DBS_NAME = 'voice'
-COLLECTION_NAME = 'projects'
+# MONGODB_HOST = 'localhost'
+# MONGODB_PORT = 27017
+# DBS_NAME = 'voice'
+# COLLECTION_NAME = 'projects'
 
 @app.route("/")
 def index (): 
@@ -34,8 +23,7 @@ def index ():
 def projects ():
     # connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
     client = MongoClient(uri)
-    db = client.get_default_database()
-    collection = db['projects']
+    collection = client['heroku_z7cd67wr']['projects']
     #collection = connection[DBS_NAME][COLLECTION_NAME]
     documents = collection.find()
     json_documents = []
@@ -50,8 +38,7 @@ def projects ():
 def projects_categorized ():
     # connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
     client = MongoClient(uri)
-    db = client.get_default_database()
-    collection = db['projects_categorized']
+    collection = client['heroku_z7cd67wr']['projects_categorized']
     #collection = connection[DBS_NAME][COLLECTION_NAME]
     documents = collection.find()
     json_documents = []
