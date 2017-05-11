@@ -1,9 +1,9 @@
-d3.queue()
-    .defer(d3.json, "/projects_categorized")
-    .await(makeGraphs); 
+// d3.queue()
+//     .defer(d3.json, "/projects_categorized")
+//     .await(makeGraphs); 
 
-function makeGraphs(error, projectsJson) {
-    
+// function makeGraphs(error, projectsJson) {
+ d3.csv('static/js/voice-gender-categorized.json', function(projectsJson) {   
     var documents = projectsJson;
     var ndx = crossfilter(documents);
 
