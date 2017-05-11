@@ -11,12 +11,14 @@ http://adilmoujahid.com/posts/2015/01/interactive-data-visualization-d3-dc-pytho
 from flask import Flask, render_template
 from pymongo import MongoClient 
 import json 
+import sys
 from bson import json_util
 from bson.json_util import dumps
 
+
 app = Flask(__name__)
 
-MONGODB_HOST = 'localhost'
+MONGODB_HOST = 'mongodb://heroku_z7cd67wr:vqp1uo1a2se2t57mqsjbb50djp@ds137281.mlab.com:37281/heroku_z7cd67wr'
 MONGODB_PORT = 27017
 DBS_NAME = 'voice'
 COLLECTION_NAME = 'projects'
