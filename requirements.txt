@@ -7,7 +7,6 @@ bitarray==0.8.1
 blaze==0.10.1
 bokeh==0.12.4
 boto==2.45.0
-Bottleneck==1.2.0
 cffi==1.9.1
 chardet==2.3.0
 chest==0.2.3
@@ -21,7 +20,6 @@ cycler==0.10.0
 Cython==0.25.2
 cytoolz==0.8.2
 dask==0.13.0
-datashape==0.5.4
 decorator==4.0.11
 dill==0.2.5
 docutils==0.13.1
