@@ -1,5 +1,3 @@
-//var fields = ['label', 'meanfreq', 'sd', 'median', 'Q25', 'Q75', 'IQR', 'skew', 'kurt', 'sp.ent', 'sfm', 'mode', 'centroid', 'minfun', 'maxfun', 'meandom', 'mindom', 'maxdom', 'dfrange', 'modindx'];
-//var fields = ['mean', 'median', 'mode'] 
 var fields = ['sd', 'Q25', 'Q75', 'IQR'] 
 var rows = ['heading'].concat(fields.slice(0).reverse()),
     cols = ['heading'].concat(fields);
@@ -38,7 +36,7 @@ var circleAttributes = circles
 var maleText = svgContainer.select("#male-label")
 var maleLabel = maleText
                 .attr("x", 10)
-                .attr("y", 20)                
+                .attr("y", 20)
                 .text( "Male")
                 .attr("font-family", "Ubuntu")
                 .attr("font-size", "1.6em")
@@ -48,7 +46,7 @@ var maleLabel = maleText
 var femaleText = svgContainer.select("#female-label")
 var femaleLabel = femaleText
                 .attr("x", 110)
-                .attr("y", 20)                
+                .attr("y", 20)
                 .text( "Female")
                 .attr("font-family", "Ubuntu")
                 .attr("font-size", "1.6em")
@@ -64,21 +62,21 @@ d3.csv('static/js/voice-gender-subset-50.csv', function(error, csv) {
     });
 
     var data = crossfilter(csv);
-    
+
     function make_dimension(var1, var2) {
         return data.dimension(function(d) {
             return [d[var1], d[var2], d.label];
         });
     }
-    
+
     function key_part(i) {
         return function(kv) {
             return kv.key[i];
         };
     }
-    
+
     var charts = [];
-    
+
     d3.select('#scatterplot-matrix')
         .selectAll('tr').data(rows)
         .enter().append('tr').attr('class', function(d) {

@@ -10,7 +10,7 @@ var radviz = radvizComponent()
         useRepulsion: true,
         drawLinks: true,
         tooltipFormatter: function(d){
-            return '<h1>' + d.label 
+            return '<h1>' + d.label
               + '</h1>' +dimensions.map(function(dB){
               return dB + ': ' + d[dB]; }).join('<br />');
         }
@@ -42,7 +42,7 @@ var circleAttributes = circles
 var maleText = svgContainer.select("#male-label")
 var maleLabel = maleText
                 .attr("x", 10)
-                .attr("y", 20)                
+                .attr("y", 20)
                 .text( "Male")
                 .attr("font-family", "Ubuntu")
                 .attr("font-size", "1.6em")
@@ -52,7 +52,7 @@ var maleLabel = maleText
 var femaleText = svgContainer.select("#female-label")
 var femaleLabel = femaleText
                 .attr("x", 110)
-                .attr("y", 20)                
+                .attr("y", 20)
                 .text( "Female")
                 .attr("font-family", "Ubuntu")
                 .attr("font-size", "1.6em")
@@ -61,26 +61,5 @@ var femaleLabel = femaleText
 
 d3.csv('static/js/voice-gender-subset-50.csv', function(error, data){
   console.log(data);
-  radviz.render(data);    
+  radviz.render(data);
 });
-
-
-
-/*
-
-Highest Correlations
-
-Meanfreq: median; Q25
-sd: IQR, sfm
-median: centroid
-Q75: median, centroid
-skew: kurt
-sfm: sp.ent
-mode: centroid, meanfreq >>>>>>
-meanfun: ???
-minfun: ???
-maxfun: ???
-meandom: maxdom, dfrange
-mindom: ???
-modindx: 
- */

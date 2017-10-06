@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>COMPSCI590V (UMASS, Spring 2017): HW2/3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+    <!-- START CSS LIB -->
+    <link rel="stylesheet" type="text/css" href="static/lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/dc.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/d3.parcoords.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/jquery-ui-1.8.16.custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/examples.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/lib/css/slick.grid.css" type="text/css" />
+    <!-- END CSS LIB -->
+    <!-- START CSS CUSTOM -->
+    <link rel="stylesheet" type="text/css" href="static/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="static/css/radviz.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vertical_nav.css">
+
+    <!-- END CSS CUSTOM -->
+    <!-- START JS LIB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js"></script>
+    <script src="https://rawgit.com/biovisualize/radviz/master/radviz-min.js"></script>
+    <script type="text/javascript" src="static/lib/js/crossfilter.js"></script>
+    <script type="text/javascript" src="static/lib/js/holder.js"></script>
+    <script type="text/javascript" src="static/lib/js/jquery.js"></script>
+    <script src="static/lib/js/jquery-1.7.min.js"></script>
+    <script src="static/lib/js/jquery.event.drag-2.0.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/queue.js"></script>
+    <script type="text/javascript" src="static/lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/dc.js"></script>
+    <script type="text/javascript" src="static/lib/js/reductio/reductio.js"></script>
+    <script type="text/javascript" src="static/js/buttons.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.core.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.grid.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.pager.js"></script>
+    <script type="text/javascript" src="static/lib/js/slick.dataview.js"></script>
+    <script type="text/javascript" src="static/lib/js/d3.parcoords.js"></script>
+    <script type="text/javascript" src="static/lib/js/smooth-scroll-master/dist/js/smooth-scroll.js"></script>
+    <script type ="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js" defer></script>    
+
+    <!-- END JS LIB -->
+</head>
+
+<body>
+
+    <nav id="cd-vertical-nav">
+        <ul>
+            <li>
+                <a href="#section1" data-number="1">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Intro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section2" data-number="2">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Min's, Mean's, and Max's</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section3" data-number="3">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Quartiles</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section4" data-number="4">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Shape and Energy</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section5" data-number="5">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Dominant Factors</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section6" data-number="6">
+                    <span class="cd-dot"></span>
+                    <span class="cd-label">Conclusion</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <a class="cd-nav-trigger cd-img-replace">Open navigation<span></span></a>
+
+        <section id="section1" class="cd-section">
+            <h2>Introduction</h1>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                   <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">                    
+                            <img src="../static/img/ella-fitzgerald.jpg" class="img-responsive img-circle" alt="Ella Fitzgerald in front of microphone">      
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="text">
+                                If your listening habits are like most others, you associate high pitch with women's voices and low pitch with men's voices. On average, men's speaking voices are an octave lower than that of women. Thinking only in terms of averages, however, one risks overlooking the overlap in average vocal range between biological men and women. A computer program that classifies gender solely by average speaking/singing pitch will necessarily miss out on the androgenous gray area of speech patterns shared between biological men and women. Indeed, humans listen to much more than just average pitches when identifying gender from one's voice. The following series of visualizations will explore several salient variables that factor in this identification process. The <a href="http://www.primaryobjects.com/2016/06/22/identifying-the-gender-of-a-voice-using-machine-learning/">dataset</a> used for purpose of this exploration is the result of various data analytics performed on several thousand .wav files of speech/song samples compiled by <a href="http://www.primaryobjects.com/kory-becker/">Kory Becker</a>.
+                            </span>
+                        </div> 
+                    </div>
+                </div>
+                <!-- <div class="col-md-1"></div>                 -->
+                <div class="col-md-5" style="margin-top: 40px">
+                    <span class="text">
+                    1 target variable:
+                    <ol>
+                        <li>label (male or female)</li>
+                    </ol>
+                    <br>
+                    20 independent variables:                    
+                    <ol>
+                        <li><b>meanfreq</b>: mean frequency (in kHz)</li>
+                        <li><b>sd</b>: standard deviation of frequency</li>
+                        <li><b>median</b>: median frequency (in kHz)</li>
+                        <li><b>Q25</b>: first quantile (in kHz)</li>
+                        <li><b>Q75</b>: third quantile (in kHz)</li>
+                        <li><b>IQR</b>: interquantile range (in kHz)</li>
+                        <li><b>skew</b>: skewness (see note in specprop description)</li>
+                        <li><b>kurt</b>: kurtosis (see note in specprop description)</li>
+                        <li><b>sp.ent</b>: spectral entropy</li>
+                        <li><b>sfm</b>: spectral flatness</li>
+                        <li><b>mode</b>: mode frequency</li>
+                        <li><b>centroid</b>: frequency centroid (see specprop)</li>
+                        <li><b>meanfun</b>: mean fundamental frequency measured across acoustic signal</li>
+                        <li><b>minfun</b>: minimum fundamental frequency measured across acoustic signal</li>
+                        <li><b>maxfun</b>: maximum fundamental frequency measured across acoustic signal</li>
+                        <li><b>meandom</b>: mean of dominant frequency measured across acoustic signal</li>
+                        <li><b>mindom</b>: minimum of dominant frequency measured across acoustic signal</li>
+                        <li><b>maxdom</b>: maximum of dominant frequency measured across acoustic signal</li>
+                        <li><b>dfrange</b>: range of dominant frequency measured across acoustic signal</li>
+                        <li><b>modindx</b>: modulation index</li>
+                    </ol>
+                    </span>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </section>
+        
+        <section id="section2" class="cd-section">
+            <h2>Min's, Mean's, and Max's</h2>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4" style="margin-top: 100px; margin-right: 20px">
+                    <span class="text" >
+                        Let us begin by getting a sense of where the various means, mins, and max's lie within our dataset. General frequency refers to processing applied to the wavforms of each vocal sample on a whole. Fundamental frequency concerns the base pitch at which one speaks or sings, upon which harmonics are naturally generated. Dominant frequency concerns the most present frequencies measures for the entire duration of each vocal sample. The 3168 observations of the entire dataset were partitioned into 9 bins by equally spaced intervals of kHz (kiloherz). Observation counts are graphed for each of the 9 variables relating to means, mins, and max's. Click on any of the bars to engage the other linked graphs that contain shared observations. Click once again to deselect a selection.
+                    <br>
+                    <br>
+                    <ul style="padding-left:30px">
+                        <li>The distributions for general frequency calculations are the most well-spread. They reflect the natural variation in pitch of spoken and sung vocal samples by both men and women.</li>
+                        <li>As one might expect, the mean graph for fundamental frequncy is well distributed, while the minimum and maximum fundamental frequency graphs are skewed to their appropriate directions.</li>
+                        <li>Of the three pitch classses considered, dominant frequency has the least conclusive pattern(s) associated with it. In other words, it does not play a clear role in distinguishing female from male voices.</li>
+                    </ul>
+
+                    </span> 
+                </div>                
+                <div class="col-md-6" id="bargraphs">
+                    <div class="row">
+                        <div class="col-md-2" id="meanfreq-bar-graph"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" id="sd-bar-graph"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" id="median-bar-graph"></div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" id="meanfun-bar-graph"></div>
+                        <div class="col-md-2"></div>                        
+                        <div class="col-md-2" id="minfun-bar-graph"></div>
+                        <div class="col-md-2"></div>                        
+                        <div class="col-md-2" id="maxfun-bar-graph"></div>
+                        <div class="col-md-2"></div>            
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" id="meandom-bar-graph"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" id="mindom-bar-graph"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" id="maxdom-bar-graph"></div>
+                        <div class="col-md-2"></div>                
+                    </div>
+                </div>
+            </div>
+        </section> 
+
+        <section id="section3" class="cd-section">
+            <div class="row">
+            <h2>Quartiles</h2>
+                <div class="col-md-1"></div>
+                    <div class="col-md-6 ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <svg id="gender-legend-1" style="margin-bottom: 30px">
+                                            <text id="male-label"></text>
+                                            <text id="female-label"></text>
+                                        </svg>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="scatterplot-matrix"></table>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-3"></div> 
+                            <div class="col-md-4">
+                               <span class="text">
+                                    Values for all axes in kiloherz (kHz) 
+                                </span> 
+                            </div>
+                            <div class="col-md-5"></div> 
+                        </div> 
+                    </div>
+                    <div class="col-md-4" style="margin-top: 100px">
+                        <span class="text">
+                            Let's now see at how pairs of variables of our dataset compare to one another. Click and drag a selection rectangle in any given quadrant to see where the selected points appear in the other graphs. Dragging your rectangular selection within a quadrant engages the selection in the other graphs as well. Clicking once outside the selection de-selects your selection.   
+                        <br>
+                        <br>
+                        <ul style="padding-left:30px">
+                            <li>IQR, Q25, and sd have the clearest correlations with each other.  </li>
+                            <li>IQR positively correlates with sd. This means that as average pitch in the interquartile range increases, or pitch increases more generally, the differences between frequencies in a wavform also increase. This may reflect the notion that, on average, women's voices fluctuate more in pitch than men's. </li>
+                            <li>IQR negatively correlates with Q25. This simply reflects the fact that IQR is composed of the 1st and 2nd quartiles of each vocal sample's frequncy spectrum. Thus, when the 1st quartile of the sample (i.e. Q25) is high, the other half of the spectrum must be low. </li>
+                            <li>It's worth noting just how inconsequential Q75 is in relation to Q25 and IQR. While the later two measures partition the dataset by their male and female labels fairly well, Q75 does not nearly correlate with the other variables as clearly. This is indicative of the fact that both female and male voices share a vast majority of the harmonic spectrum that is generated by their fundamental speaking/singing voices. Thus, attempting to classify gender by this variable is not very effective. </li>
+                        </ul> 
+    
+                        </span>
+                    </div>
+                <div class="col-md-1"></div>
+            </div>
+        </section> 
+
+<!-- sd, Q25, IQR, sp.ent, sfm, mode, and meanfun -->
+
+<section id="section4" class="cd-section">
+            <div class="row">
+                <h2 id="parcoords">Shape and Energy</h2>
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <span class="text">
+                                The variables visualized in this graph are not the typical things that one consciously thinks about when hearing a person's voice. The graph explores several statistical measures of the original waveforms dealing with concentrations and spread of acoustic energy in the signal. Of the 9 input variables visualized here, sd, Q25, IQR, mode, sp.ent, and sfm most naturally partition the data by their gender label. Click and drag a rectangular selection to sweep through any one of the black vertical bars to filter data points by where they lie on the range of values for each input variable. 
+                            </span>
+                        </div>
+                        <div class="col-md-5">
+                            <span class="text">
+                                Feel free to rearrange the order of input variables in the graph by clicking and dragging on any of the axis numerical labels of any variable. See if you can confirm that sweeping through mode, sp.ent, and sfm in fact result in the clearest divisions of female and male datapoints. Similarly, notice how sweeping from high to low values for any of the other variables does not result in a clear difference in the endpoints for gender labels.  
+                            </span>
+                        </div>
+                        <div class="col-md-1"></div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div id="example" class="parcoords" style="height:500px; width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5"></div> 
+                        <div class="col-md-4">
+                           <span class="text">
+                                Values for all axes in kiloherz (kHz) 
+                            </span> 
+                        </div>
+                        <div class="col-md-3"></div> 
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </section> 
+
+        <section id="section5" class="cd-section">
+            <h2>Dominant Factors</h2>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4" style="margin-top: 130px">
+                    <span class="text">
+
+                        So far, we've been able to examine our dataset from several particular angles. We've gotten a sense of how the data is distributed, interesting correlations in the data, and variables that work best at partitioning the data. Last but not least, let's get an overview of how the 20 input variables in our dataset factor into each of our data points. Although two clusters for male and female labeled data points is not 100% clear, there certainly is some degree of natural partitioning apparent in the radviz display. Specifically, the female data points (colored orange) have higher values for meanfreq, dfrange, maxdom, and meandom, which leads the points to skew towards those directions. Your intuition is correct if you guessed this influence mainly has to due with the fact that females' voices are higher on average than men's. 
+                        
+                        <br>
+                        <br>
+    
+                        It is worth dwelling on why exactly the data is not more clearly partitioned than the current display allows for. The visualization's lack of clear-cut partitioning actually illustrates one of the biggest takeaways of this visualization series in general. That is, male and female voices do not neatly reflect the binary of biological sex. There is considerable variability in pitch and speaking patterns that make the classification of voices by gender fuzzy.                      
+
+                    </span>
+
+                </div>
+                <!-- <div class="col-md-1"></div> -->
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-5">
+                                    <svg id="gender-legend-2">
+                                        <text id="male-label"></text>
+                                        <text id="female-label"></text>
+                                    </svg>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                    </div>                
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="radviz"></div>
+                            <div id="tooltip"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> 
+
+ 
+
+    <section id="section6" class="cd-section">
+        <h2>Conclusion</h2>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="text">
+                                It goes without saying that most human beings are not able to accurately classify hundreds or thousands, in this case, of vocal samples by the biological sex of their speakers or singers. Surely, mean fundamental frequency, or the base pitch at which people speak or sing, is by far the most impactful factor in the classification process both for computer generated classification models and our own human ears. Nonetheless, over a dozen other factors are influential in boosting the accuracy of computer generated models from human level accuracy to nearly 100% accuracy. As we've seen, the rest of these factors aren't equally influential. Neither are they all very influential at all. Of the 20 variables included in this dataset, mean fundamental frequency, sd, Q25, IQR, mode, sp.ent, and sfm are the most important in the classification process. The influence of the other 13 variables is relatively much more ambiguous.    
+                            </span>
+                        </div> 
+                    </div>
+                   <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">                    
+                            <img src="../static/img/frank-sinatra.jpg" style="width: 200%; height: 200%; margin-top: 60px;" class="img-responsive img-circle" alt="Billie Holiday in front of microphone">       
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                   <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">                    
+                            <img src="../static/img/billie-holiday.jpg" style="width: 200%; height: 200%" class="img-responsive img-circle" alt="Frank Sinatra in front of microphone">       
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="text">
+                                So you can safely exit your browser having navigated this webpage with the following handful of insights at your disposal: 
+                                <ul style="padding-left:30px">
+                                    <li>Nuanced speech pattern factors such as inflection and emphasis enable <a href=https://medium.com/@jameschen_78678/predict-gender-with-voice-and-speech-data-347f437fc4da>various computer models</a> to accurately classify vocal samples as either male or female.</li>
+                                    <li>These nuanced factors are likely to be the result of socializing factors opposed to the raw genetic influence on mean fundamental pitch difference between women and men on average. </li>
+                                    <li>Unlike fundamental frequency, dominant and general frequency calculations are not highly important in the classification process.</li>
+                                    <li>The majority of analytics that can be performed on speech/song samples of men's and women's voices such as the 20 variables utilized in this dataset  are not particularly helpful in naturally partitioning a dataset composed of men's and women's vocal samples by biological sex.</li>
+                                    <li>The majority of these analytics aren't highly correlated with one another as well. This fact confirms the androgenous gray area between men's and women's voices that complicates classification one way or another.</li>
+                                </ul>
+                            </span>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-md-1"></div>                
+            </div>
+
+    <!-- START JS CUSTOM-->
+    <script type="text/javascript" src="static/js/parcoords.js"></script>
+    <script type="text/javascript" src="static/js/radviz.js"></script>
+    <script type="text/javascript" src="static/js/scatterplot_matrix.js"></script>
+    <script type="text/javascript" src="static/js/histogram-matrix.js"></script>   
+    <script type="text/javascript" src="static/js/vertical_nav.js"></script>
+    <!-- END JS CUSTOM -->
+</body>
+
+</html>

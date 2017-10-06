@@ -14,8 +14,7 @@ var parcoords = d3.parcoords()("#example")
 // load csv file and create the chart
 d3.csv('static/js/voice-gender-subset-50-parcoors.csv', function(data) {
   // slickgrid needs each data element to have an id
-  
-  console.log(data)
+
   data.forEach(function(d,i) { d.id = d.id || i; });
 
   parcoords
@@ -62,7 +61,7 @@ d3.csv('static/js/voice-gender-subset-50-parcoors.csv', function(data) {
     var x = a[sortcol], y = b[sortcol];
     return (x == y ? 0 : (x > y ? 1 : -1));
   }
-  
+
   // click header to sort grid column
   grid.onSort.subscribe(function (e, args) {
     sortdir = args.sortAsc ? 1 : -1;
