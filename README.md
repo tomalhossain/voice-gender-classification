@@ -10,48 +10,46 @@ https://vocal-gender.herokuapp.com/
 
 ## Questions(Q)/Hypotheses(H)
 
-### Q
+#### Q
 
 Which variables regarding acoustic properties are most responsible for complicating the accuracy of classification of vocal samples as either male or female from the baseline of simply classifying by some threshold frequency related to the mean fundamental frequency of each vocal sample?
 
-### H
+#### H
 
 It seems to me that metrics relating to the pitch variability of vocal samples may have a considerable influence on the classification of a vocal sample as either male or female.
 
 
-### Q
+#### Q
 
 How do the distributions of acoustic properties related to inflection and tonal quality differ between male and female vocal samples? What does such variation, if at all present, say about gender norms and roles in society regarding language and communication?
 
-### H
+#### H
 
 It seems to me that speech patterns that show up in the vocal samples are more likely the result of cultural exposure and upbringing rather than biological differences. This observation would be in contrast to mean fundamental frequency, which is certainly much more biologically rooted in the fact that men’s voices on average are roughly an octave deeper than female voices.
 
 
-### Q
+#### Q
 
 How does the accuracy of the most accurate model utilized in the study that utilized this dataset compare with the accuracy of humans in classifying vocal samples as either male or female? What does the divide between these two accuracies, if present, say about the ability of humans to discern nuanced acoustic properties from solo voice recordings?
 
-### H
+#### H
 
 In the article that utilized the dataset, the most sophisticated classification algorithm obtains an accuracy of nearly 100%. It seems to me that human beings would average closer to the 80-90% range in this regard.
 
 
 ## Visualizations Utilized
 
-Histograms
-Scatterplot Matrix
-Parallel Coordinates
-Radviz
+1. Histograms
+2. Scatterplot Matrix
+3. Parallel Coordinates
+4. Radviz
 
-## Questions(Q)/Hypotheses(H)
 
 ## Running Locally
 
 1. Clone project
 2. Run a simple http server such as python's simple http server:
 
-```
-python3 -m http.server
-```
+  ```python3 -m http.server```
+
 3. That's it. Happy data exploration!
